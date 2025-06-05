@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Results;
 using WebApiConsultorioDesi.DAL;
 using WebApiConsultorioDesi.Models;
 
@@ -13,11 +14,25 @@ namespace WebApiConsultorioDesi.Controllers
     [RoutePrefix("api/Empresa")]
     public class EmpresaController : ApiController
     {
+        [HttpGet]
         [Route("List")]
-        public IHttpActionResult GetAllEmpresa()
+        public List<ObjEmpresa> GetAllEmpresa()
         {
-            new DbWrapper().GetAllEmpresa();
+            var response = new DbWrapper().GetAllEmpresa();
 
+            return response;
+        }
+        [HttpGet]
+        [Route("{id:long}")]
+        public ObjEmpresa GetEmpresaById(long id)
+        {
+            var response = new DbWrapper().GetEmpresaById(id);
+            return response;
+        }
+        [HttpPost]
+        [Route("")]
+        public OkResult SaveOrUpdate()
+        {
             return Ok();
         }
     }
