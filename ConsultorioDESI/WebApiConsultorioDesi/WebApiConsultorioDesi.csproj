@@ -94,6 +94,7 @@
     </Compile>
     <Compile Include="Models\BaseObject.cs" />
     <Compile Include="Models\ObjEmpresa.cs" />
+    <Compile Include="Models\ObjUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
