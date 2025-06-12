@@ -22,6 +22,7 @@ namespace WebApiConsultorioDesi.Controllers
 
             return response;
         }
+
         [HttpGet]
         [Route("{id:long}")]
         public ObjEmpresa GetEmpresaById(long id)
@@ -29,6 +30,7 @@ namespace WebApiConsultorioDesi.Controllers
             var response = new DbWrapper().GetEmpresaById(id);
             return response;
         }
+
         [HttpPost]
         [Route("")]
         public OkResult SaveOrUpdate()
