@@ -20,6 +20,7 @@ namespace WebApiConsultorioDesi.DAL
 
             return response.ToList();
         }
+
         public ObjEmpresa GetEmpresaById(long id)
         {
             var parametros = new List<SqlParameter>()
