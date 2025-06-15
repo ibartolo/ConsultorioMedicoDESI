@@ -16,7 +16,7 @@ namespace MVCConsultorioMedico
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "DatosFiscales", action = "Index", id = UrlParameter.Optional }
             );
         }
     }
