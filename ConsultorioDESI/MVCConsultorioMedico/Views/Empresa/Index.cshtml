@@ -16,7 +16,7 @@
     @Model.TelContacto
 <br />
    
-@using (Html.BeginForm("", "Empresa", FormMethod.Get))
+@using (Html.BeginForm("SaveOrUpdateEmpresa", "Empresa", FormMethod.Post))
 { 
     <div class="row">
         <div class="col-md-3">
@@ -37,7 +37,7 @@
         </div>
 
         <div class="row">
-            <input type="button" name="Guardar" id="btnGuardar" value="Guardar" class="btn btn-content"/> 
+            <input type="submit" name="Guardar" id="btnGuardar" value="Guardar" class="btn btn-content"/> 
         </div>
     </div>
 }

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace MVCConsultorioMedico.Models
 {
-    public class ObjEmpresa
+    public class ObjEmpresa : BaseObject
     {
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
