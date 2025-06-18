@@ -1,0 +1,45 @@
+﻿@model MVCConsultorioMedico.Models.ObjEmpresa
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Empresa - Controller</h2>
+
+<br />
+    @Model.Nombre
+<br />
+    @Model.Representante
+<br />
+    @Model.EmailContacto
+<br />
+    @Model.TelContacto
+<br />
+   
+@using (Html.BeginForm("", "Empresa", FormMethod.Get))
+{ 
+    <div class="row">
+        <div class="col-md-3">
+            <label>Nombre</label>
+            @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control" })
+        </div>
+        <div class="col-md-3">
+            <label>Representante</label>
+            @Html.TextBoxFor(m => m.Representante, new { @class = "form-control" })
+        </div>
+        <div class="col-md-3">
+            <label>Email</label>
+            @Html.TextBoxFor(m => m.EmailContacto, new { @class = "form-control" })
+        </div>
+        <div class="col-md-3">
+            <label>Contacto</label>
+            @Html.TextBoxFor(m => m.TelContacto, new { @class = "form-control" })
+        </div>
+
+        <div class="row">
+            <input type="button" name="Guardar" id="btnGuardar" value="Guardar" class="btn btn-content"/> 
+        </div>
+    </div>
+}
+
+
