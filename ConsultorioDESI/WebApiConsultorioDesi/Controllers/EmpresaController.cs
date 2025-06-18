@@ -33,9 +33,10 @@ namespace WebApiConsultorioDesi.Controllers
 
         [HttpPost]
         [Route("")]
-        public OkResult SaveOrUpdate()
+        public ObjEmpresa SaveOrUpdateEmpresa(ObjEmpresa obj)
         {
-            return Ok();
+            var response = new DbWrapper().SaveOrUpdateEmpresa(obj);
+            return response;
         }
     }
 }

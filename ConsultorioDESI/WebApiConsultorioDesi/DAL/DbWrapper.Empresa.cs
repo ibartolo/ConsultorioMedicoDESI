@@ -40,5 +40,16 @@ namespace WebApiConsultorioDesi.DAL
 
             return response;
         }
+
+        public ObjEmpresa SaveOrUpdateEmpresa(ObjEmpresa obj)
+        {
+            var parametros = GenerateSQLParameters(obj);
+
+            var response = ExecuteScalar("SaveOrUpdateEmpresa", System.Data.CommandType.StoredProcedure, parametros);
+
+            obj.Id = Convert.ToInt64(response);
+
+            return obj;
+        }
     }
 }

@@ -12,11 +12,27 @@ namespace MVCConsultorioMedico.Controllers
     public class EmpresaController : Controller
     {
         // GET: Empresa
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(long id = 0)
         {
-            ObjEmpresa obj = new ObjEmpresa();
-            obj = await new HttpClientConnection().GetEmpresaById(1);
+            ObjEmpresa obj = null;
+
+            if (id != 0)
+            {
+                obj = await new HttpClientConnection().GetEmpresaById(id);
+            }
+            else
+            {
+                obj = new ObjEmpresa();
+            }
+
+            
             return View(obj);
+        }
+
+        public async Task<ActionResult> SaveOrUpdateEmpresa(ObjEmpresa obj)
+        {
+            await new HttpClientConnection().SaveOrUpdateEmpresa(obj);
+            return Redirect("Index");
         }
     }
 }
