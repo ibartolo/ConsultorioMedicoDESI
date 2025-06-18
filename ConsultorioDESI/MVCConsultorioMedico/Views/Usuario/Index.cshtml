@@ -1,0 +1,42 @@
+﻿@model MVCConsultorioMedico.Models.ObjUsuario
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Usuarios - Controller</h2>
+
+
+<br />
+    @Model.UserName
+<br />
+    @Model.Pass
+<br />
+    @Model.Email
+<br />
+    @Model.Nombre
+<br />  
+    @Model.Apellido
+<br />
+    
+@using (Html.BeginForm("", "Usuario", FormMethod.Post))
+ {
+    <div class="row">
+        <div class="col-md-4">
+            <label>Nombre de usuario</label>
+            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control"})
+        </div>
+        <div class="col-md-4">
+            <label>Email</label>
+            @Html.TextBoxFor(m => m.Email, new {@class = "form-control"})
+        </div>
+        <div class="col-md-4">
+            <label>Nombre</label>
+            @Html.TextBoxFor(m => m.Nombre, new {@class = "form-control"})
+        </div>
+    </div>
+
+    <div class="row">
+        <input type="button", name="Guardar", id="btnGuardar", value="Guardar", class="btn btn-success" />
+    </div>
+ }
