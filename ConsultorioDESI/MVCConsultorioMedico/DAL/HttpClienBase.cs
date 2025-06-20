@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using System.Web;
+using System.Text;
 
 namespace MVCConsultorioMedico.DAL
 {
@@ -25,11 +26,11 @@ namespace MVCConsultorioMedico.DAL
 			};
 		}
 
-		public async Task<T> RequestAsync<T>(string endPoint, HttpMethod method, T contect, Func<string, T> func, string token = "", string conetntype = "") where T : class
+		public async Task<T> RequestAsync<T>(string endPoint, HttpMethod method, T contect, Func<string, T> func, string token = "", string conetntype = "application/json") where T : class
         {
 			using (var r = new HttpRequestMessage()
 			{ 
-				Content = (contect != null ? new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(contect)) : null),
+				Content = (contect != null ? new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(contect), Encoding.UTF8, conetntype) : null),
 				Method = method,
 				RequestUri = new Uri(httpClient.BaseAddress, endPoint)
             })
