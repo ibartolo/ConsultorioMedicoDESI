@@ -28,6 +28,10 @@
             @Html.TextBoxFor(m => m.Representante, new { @class = "form-control" })
         </div>
         <div class="col-md-3">
+            <label>Descripcion</label>
+            @Html.TextAreaFor(m => m.Descripcion, new { @class = "form-control" })
+        </div>
+        <div class="col-md-3">
             <label>Email</label>
             @Html.TextBoxFor(m => m.EmailContacto, new { @class = "form-control" })
         </div>
@@ -37,7 +41,7 @@
         </div>
 
         <div class="row">
-            <input type="submit" name="Guardar" id="btnGuardar" value="Guardar" class="btn btn-content"/> 
+            <input type="submit" name="Guardar" id="btnGuardar" value="Guardar" class="btn btn-content" />
         </div>
     </div>
 }
