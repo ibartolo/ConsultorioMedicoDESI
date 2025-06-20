@@ -14,11 +14,17 @@ namespace WebApiConsultorioDesi.Controllers
     [RoutePrefix("api/Empresa")]
     public class EmpresaController : ApiController
     {
+        public DbWrapper wrapper { get; set; }
+        public EmpresaController()
+        {
+            wrapper = new DbWrapper();
+        }
+
         [HttpGet]
         [Route("List")]
         public List<ObjEmpresa> GetAllEmpresa()
         {
-            var response = new DbWrapper().GetAllEmpresa();
+            var response = wrapper.GetAllEmpresa();
 
             return response;
         }
@@ -27,7 +33,7 @@ namespace WebApiConsultorioDesi.Controllers
         [Route("{id:long}")]
         public ObjEmpresa GetEmpresaById(long id)
         {
-            var response = new DbWrapper().GetEmpresaById(id);
+            var response = wrapper.GetEmpresaById(id);
             return response;
         }
 
@@ -35,7 +41,7 @@ namespace WebApiConsultorioDesi.Controllers
         [Route("")]
         public ObjEmpresa SaveOrUpdateEmpresa(ObjEmpresa obj)
         {
-            var response = new DbWrapper().SaveOrUpdateEmpresa(obj);
+            var response = wrapper.SaveOrUpdateEmpresa(obj);
             return response;
         }
     }
