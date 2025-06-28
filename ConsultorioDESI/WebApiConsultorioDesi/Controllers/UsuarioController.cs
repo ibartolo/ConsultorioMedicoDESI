@@ -15,12 +15,19 @@ namespace WebApiConsultorioDesi.Controllers
 
     public class UsuarioController : ApiController
     {
+        public DbWrapper dbwrapper { get; set; }
+
+        public UsuarioController()
+        {
+            dbwrapper = new DbWrapper();
+        }
+
         //obtener la lista de todos los usuarios
         [HttpGet]
         [Route("List")]
         public List<ObjUsuario> GetAllUsuario()
         {
-            var response = new DbWrapper().GetAllUsuario();
+            var response = dbwrapper.GetAllUsuario();
             return response;
         }
 
@@ -29,7 +36,7 @@ namespace WebApiConsultorioDesi.Controllers
         [Route("{id:long}")]
         public ObjUsuario GetUsuarioById(long id)
         {
-            var response = new DbWrapper().GetUsuarioById(id);
+            var response = dbwrapper.GetUsuarioById(id);
             return response;
         }
 
@@ -38,7 +45,7 @@ namespace WebApiConsultorioDesi.Controllers
         [Route("Login")]
         public IHttpActionResult GetUsuarioByUserNameAndPass([FromBody] ObjUsuario usuario)
         {
-            var response = new DbWrapper().GetUsuarioByUserNameAndPass(usuario.UserName, usuario.Pass);
+            var response = dbwrapper.GetUsuarioByUserNameAndPass(usuario.UserName, usuario.Pass);
             return Ok(response);
         }
 
@@ -49,7 +56,7 @@ namespace WebApiConsultorioDesi.Controllers
         {
             try
             {
-                new DbWrapper().SaveOrUpdateUsuario(id, username, pass, email, nombre, apellido, createdby, createddt, updatedby, updateddt);
+                dbwrapper.SaveOrUpdateUsuario(id, username, pass, email, nombre, apellido, createdby, createddt, updatedby, updateddt);
                 return Ok("Se ha registrado los datos con exito");
             }catch(Exception ex)
             {
@@ -62,7 +69,7 @@ namespace WebApiConsultorioDesi.Controllers
         [Route("delete/{id:long}")]
         public IHttpActionResult DeleteUsuario(long id)
         {
-            new DbWrapper().DeleteUsuario(id);
+            dbwrapper.DeleteUsuario(id);
             return Ok("El registro se borro con exito");
         }
     }

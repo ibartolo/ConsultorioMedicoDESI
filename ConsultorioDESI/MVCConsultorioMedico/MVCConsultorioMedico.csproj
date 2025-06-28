@@ -94,7 +94,9 @@
   <ItemGroup>
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\DatosFiscales\DatosFiscales.js" />
     <Content Include="Scripts\Empresa\Index.js" />
+    <Content Include="Scripts\Usuario\Index.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
