@@ -9,13 +9,14 @@ using MVCConsultorioMedico.Models;
 
 namespace MVCConsultorioMedico.Controllers
 {
-    public class DatosFiscalesController : Controller
+    public class DatosFiscalesController : BaseController
     {
         // GET: DatosFiscales
         public async Task<ActionResult> Index()
         {
             ObjDatosFiscales obj = new ObjDatosFiscales();
-            obj = await new HttpClientConnection().GetDatosFiscalesById(2);
+            
+            obj = await httpClientConnection.GetDatosFiscalesById(2);
 
             return View(obj);
         }
