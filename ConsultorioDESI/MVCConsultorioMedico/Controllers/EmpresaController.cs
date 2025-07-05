@@ -9,8 +9,10 @@ using MVCConsultorioMedico.DAL;
 
 namespace MVCConsultorioMedico.Controllers
 {
-    public class EmpresaController : Controller
+    public class EmpresaController : BaseController
     {
+        public HttpClientConnection _httpclientconnection = new HttpClientConnection();
+
         // GET: Empresa
         public async Task<ActionResult> Index(long id = 0)
         {
@@ -18,7 +20,7 @@ namespace MVCConsultorioMedico.Controllers
 
             if (id != 0)
             {
-                obj = await new HttpClientConnection().GetEmpresaById(id);
+                obj = await _httpclientconnection.GetEmpresaById(id);
             }
             else
             {
@@ -36,7 +38,7 @@ namespace MVCConsultorioMedico.Controllers
             obj.CreatedBy = "Victor";
             obj.UpdatedBy = "Victor";
 
-            await new HttpClientConnection().SaveOrUpdateEmpresa(obj);
+            await _httpclientconnection.SaveOrUpdateEmpresa(obj);
             return Redirect("Index");
         }
     }
