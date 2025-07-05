@@ -94,7 +94,9 @@
   <ItemGroup>
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\DatosFiscales\DatosFiscales.js" />
     <Content Include="Scripts\Empresa\Index.js" />
+    <Content Include="Scripts\Usuario\Index.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -103,11 +105,13 @@
     <Compile Include="Controllers\DatosFiscalesController.cs" />
     <Compile Include="Controllers\EmpresaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PacienteController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="DAL\HttpClienBase.cs" />
     <Compile Include="DAL\HttpClientConnection.cs" />
     <Compile Include="DAL\HttpClientConnection.DatsFiscales.cs" />
     <Compile Include="DAL\HttpClientConnection.Empresa.cs" />
+    <Compile Include="DAL\HttpClientConnection.Paciente.cs" />
     <Compile Include="DAL\HttpClientConnection.Usuario.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -115,6 +119,7 @@
     <Compile Include="Models\BaseObject.cs" />
     <Compile Include="Models\ObjDatosFiscales.cs" />
     <Compile Include="Models\ObjEmpresa.cs" />
+    <Compile Include="Models\ObjPaciente.cs" />
     <Compile Include="Models\ObjUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -126,6 +131,7 @@
     <Content Include="Views\DatosFiscales\Index.cshtml" />
     <Content Include="Views\Usuario\Index.cshtml" />
     <Content Include="Views\Empresa\Index.cshtml" />
+    <Content Include="Views\Paciente\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

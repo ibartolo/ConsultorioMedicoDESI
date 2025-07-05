@@ -9,7 +9,6 @@ namespace WebApiConsultorioDesi.Models
 {
     public class ObjDatosFiscales : BaseObject
     {
-        public long Id { get; set; }
         public String RFC { get; set; }
         public String RazonSocial { get; set; }
         public String DireccionSocial { get; set; }

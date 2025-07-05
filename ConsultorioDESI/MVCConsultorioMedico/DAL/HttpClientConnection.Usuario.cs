@@ -19,6 +19,15 @@ namespace MVCConsultorioMedico.DAL
             }));
             return JsonConvert.DeserializeObject<ObjUsuario>(response);
         }
+
+        public async Task<ObjUsuario> SaveOrUpdateUsuario(ObjUsuario obj)
+        {
+            var response = await RequestAsync($"api/Usuario", System.Net.Http.HttpMethod.Post, obj,
+                new Func<string, ObjUsuario>((responseString) => {
+                    return JsonConvert.DeserializeObject<ObjUsuario>(responseString);
+                }));
+            return response;
+        }
     }
 
     

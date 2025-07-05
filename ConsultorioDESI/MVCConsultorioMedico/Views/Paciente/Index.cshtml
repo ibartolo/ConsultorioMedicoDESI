@@ -1,0 +1,75 @@
+﻿@model MVCConsultorioMedico.Models.ObjPaciente
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+
+<h2>Paciente</h2>
+
+@using (Html.BeginForm("SaveOrUpdatePaciente", "Paciente", FormMethod.Get, new { @name = "frmPaciente", @id = "frmPaciente" }))
+{
+    @Html.HiddenFor(x => x.Id);
+    @Html.HiddenFor(x => x.Estatus);
+    @Html.HiddenFor(x => x.CreatedBy);
+    @Html.HiddenFor(x => x.CreatedDt);
+    @Html.HiddenFor(x => x.UpdatedBy);
+    @Html.HiddenFor(x => x.UpdatedDt);
+
+    <div class="row form-group">
+        <div class="col-md-4">
+            <label>Nombre</label>
+            @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control"})
+        </div>
+        <div class="col-md-4">
+            <label>Apellido Paterno</label>
+             @Html.TextBoxFor(m => m.ApellidoP, new { @class = "form-control"})
+        </div>
+        <div class="col-md-4">
+            <label>Apellido Materno</label>
+            @Html.TextBoxFor(m => m.ApellidoM, new { @class = "form-control"})
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-4">
+            <label>Genero</label>
+            @Html.TextBoxFor(m => m.Genero, new { @class = "form-control"})
+        </div>
+        <div class="col-md-4">
+            <label>Fecha de Nacimiento</label>
+             @Html.TextBoxFor(m => m.FechaNacimiento, new { @class = "form-control"})
+        </div>
+        <div class="col-md-4">
+            <label>Edad</label>
+            @Html.TextBoxFor(m => m.Edad, new { @class = "form-control"})
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-4">
+            <label>Telefono</label>
+            @Html.TextBoxFor(m => m.Telefono, new { @class = "form-control"})
+        </div>
+        <div class="col-md-4">
+            <label>Email</label>
+             @Html.TextBoxFor(m => m.Email, new { @class = "form-control"})
+        </div>
+        <div class="col-md-4">
+            <label>Fecha Recepcion</label>
+            @Html.TextBoxFor(m => m.FechaRecepcion, new { @class = "form-control"})
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-12">
+            <label>Comentario</label>
+            @Html.TextAreaFor(m => m.Comentario, new { @class = "form-control"})
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-4">
+            <input type="submit" name="Guardar" id="btnGuardar" value="Guardar" class="btn btn-content"/>
+        </div>
+    </div>
+
+}
+
