@@ -31,8 +31,6 @@ namespace MVCConsultorioMedico.Controllers
 
         public async Task<ActionResult> SaveOrUpdatePaciente(ObjPaciente obj)
         {
-            obj.FechaNacimiento = DateTime.Now;
-            obj.FechaRecepcion = DateTime.Now;
             obj.CreatedDt = DateTime.Now;
             obj.UpdatedDt = DateTime.Now;
             obj.CreatedBy = "Victor";
