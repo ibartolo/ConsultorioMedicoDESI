@@ -4,42 +4,49 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Empresa - Controller</h2>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
 
-<br />
-    @Model.Nombre
-<br />
-    @Model.Representante
-<br />
-    @Model.EmailContacto
-<br />
-    @Model.TelContacto
-<br />
-   
-@using (Html.BeginForm("", "Empresa", FormMethod.Get))
-{ 
-    <div class="row">
-        <div class="col-md-3">
+<h2>Empresas</h2>
+
+@using (Html.BeginForm("SaveOrUpdateEmpresa", "Empresa", FormMethod.Post, new { @id = "frmEmpresa", @name = "frmEmpresa" }))
+{
+    @Html.HiddenFor(x => x.Id)
+    @Html.HiddenFor(x => x.Estatus)
+    @Html.HiddenFor(x => x.CreatedDt)
+    @Html.HiddenFor(x => x.CreatedBy)
+    @Html.HiddenFor(x => x.UpdatedBy)
+    @Html.HiddenFor(x => x.UpdatedDt)
+
+    <div class="row form-group">
+        <div class="col-md-4">
             <label>Nombre</label>
             @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control" })
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
             <label>Representante</label>
             @Html.TextBoxFor(m => m.Representante, new { @class = "form-control" })
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
+            <label>Descripcion</label>
+            @Html.TextAreaFor(m => m.Descripcion, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-4">
             <label>Email</label>
             @Html.TextBoxFor(m => m.EmailContacto, new { @class = "form-control" })
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
             <label>Contacto</label>
             @Html.TextBoxFor(m => m.TelContacto, new { @class = "form-control" })
         </div>
-
-        <div class="row">
-            <input type="button" name="Guardar" id="btnGuardar" value="Guardar" class="btn btn-content"/> 
+    </div>
+    <div class="row form-group">
+        <div class="col-md-12">
+            <input type="submit" name="Guardar" id="btnGuardar" value="Guardar" class="btn btn-content" />
         </div>
     </div>
 }
 
 
+<script src="~/Scripts/Empresa/Index.js"></script>

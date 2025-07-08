@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace MVCConsultorioMedico.Models
 {
-    public class ObjDatosFiscales
+    public class ObjDatosFiscales : BaseObject
     {
         public long Id { get; set; }
         public String RFC { get; set; }

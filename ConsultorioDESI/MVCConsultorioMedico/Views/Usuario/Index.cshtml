@@ -4,39 +4,50 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Usuarios - Controller</h2>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+
+<h2>Usuarios</h2>
 
 
-<br />
-    @Model.UserName
-<br />
-    @Model.Pass
-<br />
-    @Model.Email
-<br />
-    @Model.Nombre
-<br />  
-    @Model.Apellido
-<br />
-    
-@using (Html.BeginForm("", "Usuario", FormMethod.Post))
- {
-    <div class="row">
+@using (Html.BeginForm("SaveOrUpdateUsuario", "Usuario", FormMethod.Post, new { @id = "frmUsuario", @name = "frmUsuario" }))
+{
+    @Html.HiddenFor(x => x.Id)
+    @Html.HiddenFor(x => x.CreatedDt)
+    @Html.HiddenFor(x => x.CreatedBy)
+    @Html.HiddenFor(x => x.UpdatedBy)
+    @Html.HiddenFor(x => x.UpdatedDt)
+
+
+    <div class="row form-group">
         <div class="col-md-4">
             <label>Nombre de usuario</label>
-            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control"})
+            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+        </div>
+        <div class="col-md-4">
+            <label>Contraseña</label>
+            @Html.TextBoxFor(m => m.Pass, new { @class = "form-control" })
         </div>
         <div class="col-md-4">
             <label>Email</label>
-            @Html.TextBoxFor(m => m.Email, new {@class = "form-control"})
-        </div>
-        <div class="col-md-4">
-            <label>Nombre</label>
-            @Html.TextBoxFor(m => m.Nombre, new {@class = "form-control"})
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
         </div>
     </div>
 
-    <div class="row">
-        <input type="button", name="Guardar", id="btnGuardar", value="Guardar", class="btn btn-success" />
+    <div class="row form-group">
+        <div class="col-md-6">
+            <label>Nombre</label>
+            @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control" })
+        </div>
+        <div class="col-md-6">
+            <label>Apellido</label>
+            @Html.TextBoxFor(m => m.Apellido, new { @class = "form-control" })
+        </div>
+
     </div>
- }
+
+    <div class="row form-group">
+        <input type="button" , name="Guardar" , id="btnGuardar" , value="Guardar" , class="btn btn-success" />
+    </div>
+}
+
+<script src="~/Scripts/Usuario/Index.js"></script>

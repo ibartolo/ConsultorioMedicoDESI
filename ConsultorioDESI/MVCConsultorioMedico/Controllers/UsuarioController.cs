@@ -1,4 +1,5 @@
 ﻿using MVCConsultorioMedico.Models;
+using MVCConsultorioMedico.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,20 +7,37 @@ using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using MVCConsultorioMedico.DAL;
 
 namespace MVCConsultorioMedico.Controllers
 {
     public class UsuarioController : Controller
     {
         // GET: Usuario
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(long id = 0)
         {
-            //especificar el metodo que voy a utilizar para obtener usuario por id
+            ObjUsuario obj = null;
 
-            ObjUsuario obj = new ObjUsuario();
-            obj = await new HttpClientConnection().GetUsuarioById(2);
+            if (id != 0)
+            {
+                obj = await new HttpClientConnection().GetUsuarioById(id);
+            }
+            else
+            {
+                obj = new ObjUsuario();
+            }
+
             return View(obj);
+        }
+
+        public async Task<ActionResult> SaveOrUpdateUsuario(ObjUsuario obj)
+        {
+            obj.CreatedDt = DateTime.Now;
+            obj.UpdatedDt = DateTime.Now;
+            obj.CreatedBy = "Victor";
+            obj.UpdatedBy = "Victor";
+
+            await new HttpClientConnection().SaveOrUpdateUsuario(obj);
+            return Redirect("Index");
         }
     }
 }

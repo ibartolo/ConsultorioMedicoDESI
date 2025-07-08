@@ -1,44 +1,41 @@
-﻿using System;
+﻿using MVCConsultorioMedico.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using MVCConsultorioMedico.Models;
 using MVCConsultorioMedico.DAL;
 
 namespace MVCConsultorioMedico.Controllers
 {
-    public class EmpresaController : BaseController
+    public class PacienteController : BaseController
     {
-        public HttpClientConnection _httpclientconnection = new HttpClientConnection();
-
-        // GET: Empresa
+        HttpClientConnection _httpclientconnection = new HttpClientConnection();
+        // GET: Paciente (funcion asincrona)
         public async Task<ActionResult> Index(long id = 0)
         {
-            ObjEmpresa obj = null;
+            ObjPaciente obj = null;
 
-            if (id != 0)
-            {
-                obj = await _httpclientconnection.GetEmpresaById(id);
+            if(id != 0)
+            { 
+                obj = await _httpclientconnection.GetPacienteById(id);
             }
             else
             {
-                obj = new ObjEmpresa();
+                obj = new ObjPaciente();
             }
 
-            
             return View(obj);
         }
 
-        public async Task<ActionResult> SaveOrUpdateEmpresa(ObjEmpresa obj)
+        public async Task<ActionResult> SaveOrUpdatePaciente(ObjPaciente obj)
         {
             obj.CreatedDt = DateTime.Now;
             obj.UpdatedDt = DateTime.Now;
             obj.CreatedBy = "Victor";
             obj.UpdatedBy = "Victor";
-
-            await _httpclientconnection.SaveOrUpdateEmpresa(obj);
+            await _httpclientconnection.SaveOrUpdatePaciente(obj);
             return Redirect("Index");
         }
     }
