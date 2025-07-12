@@ -10,7 +10,7 @@ namespace WebApiConsultorioDesi.Models
         public String Nombre { get; set; }
         public String ApellidoP { get; set; }
         public String ApellidoM { get; set; }
-        public int Genero { get; set; }
+        public string Genero { get; set; }
         public DateTime FechaNacimiento { get; set; }
         public int Edad { get; set; }
         public String Telefono { get; set; }
