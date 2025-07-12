@@ -8,6 +8,8 @@
 
 <h2>Paciente</h2>
 
+
+
 @using (Html.BeginForm("SaveOrUpdatePaciente", "Paciente", FormMethod.Post, new { @name = "frmPaciente", @id = "frmPaciente" }))
 {
     @Html.HiddenFor(x => x.Id);
@@ -20,43 +22,43 @@
     <div class="row form-group">
         <div class="col-md-4">
             <label>Nombre</label>
-            @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control"})
+            @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control" })
         </div>
         <div class="col-md-4">
             <label>Apellido Paterno</label>
-             @Html.TextBoxFor(m => m.ApellidoP, new { @class = "form-control"})
+             @Html.TextBoxFor(m => m.ApellidoP, new { @class = "form-control" })
         </div>
         <div class="col-md-4">
             <label>Apellido Materno</label>
-            @Html.TextBoxFor(m => m.ApellidoM, new { @class = "form-control"})
+            @Html.TextBoxFor(m => m.ApellidoM, new { @class = "form-control" })
         </div>
     </div>
     <div class="row form-group">
         <div class="col-md-4">
             <label>Genero</label>
-            @Html.TextBoxFor(m => m.Genero, new { @class = "form-control"})
+            @Html.DropDownListFor(model => model.Genero, ViewBag.Genero as List<SelectListItem>, "Seleccione su genero...", new { @class = "form-control" })
         </div>
         <div class="col-md-4">
             <label>Fecha de Nacimiento</label>
-             @Html.TextBoxFor(m => m.FechaNacimiento, new { @class = "form-control"})
+             @Html.TextBoxFor(m => m.FechaNacimiento, new { @class = "form-control", @type = "date" })
         </div>
         <div class="col-md-4">
             <label>Edad</label>
-            @Html.TextBoxFor(m => m.Edad, new { @class = "form-control"})
+            @Html.TextBoxFor(m => m.Edad, new { @class = "form-control" })
         </div>
     </div>
     <div class="row form-group">
         <div class="col-md-4">
             <label>Telefono</label>
-            @Html.TextBoxFor(m => m.Telefono, new { @class = "form-control"})
+            @Html.TextBoxFor(m => m.Telefono, new { @class = "form-control" })
         </div>
         <div class="col-md-4">
             <label>Email</label>
-             @Html.TextBoxFor(m => m.Email, new { @class = "form-control"})
+             @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
         </div>
         <div class="col-md-4">
             <label>Fecha Recepcion</label>
-            @Html.TextBoxFor(m => m.FechaRecepcion, new { @class = "form-control"})
+            @Html.TextBoxFor(m => m.FechaRecepcion, new { @class = "form-control", @readonly = "readonly", @type = "date", @Value = DateTime.Now.ToString("yyyy-MM-dd") })
         </div>
     </div>
     <div class="row form-group">
@@ -72,4 +74,6 @@
     </div>
 
 }
+
+<script src="~/Scripts/Paciente/Index.js"></script>
 

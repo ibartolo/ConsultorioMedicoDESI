@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using MVCConsultorioMedico.DAL;
+using System.Configuration;
 
 namespace MVCConsultorioMedico.Controllers
 {
@@ -26,6 +27,19 @@ namespace MVCConsultorioMedico.Controllers
                 obj = new ObjPaciente();
             }
 
+            string generos = ConfigurationManager.AppSettings["Generos"];
+            var generosList = generos.Split('|').Select(g =>
+            {
+                var parts = g.Split('_');
+                return new SelectListItem
+                {
+                    Value = parts[0],
+                    Text = parts[1]
+                };
+            }).ToList();
+
+
+            ViewBag.Genero = generosList;
             return View(obj);
         }
 
