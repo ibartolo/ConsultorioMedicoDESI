@@ -11,14 +11,26 @@ namespace MVCConsultorioMedico.Controllers
 {
     public class DatosFiscalesController : BaseController
     {
+        public HttpClientConnection _httpclientconnection = new HttpClientConnection();
         // GET: DatosFiscales
         public async Task<ActionResult> Index()
         {
             ObjDatosFiscales obj = new ObjDatosFiscales();
             
-            obj = await httpClientConnection.GetDatosFiscalesById(2);
+            obj = await _httpclientconnection.GetDatosFiscalesById(2);
 
             return View(obj);
+        }
+
+        public async Task<ActionResult> SaveOrUpdateDatosFiscales(ObjDatosFiscales datos)
+        {
+            datos.CreatedDt = DateTime.Now;
+            datos.UpdatedDt = DateTime.Now;
+            datos.CreatedBy = "Victor";
+            datos.UpdatedBy = "Victor";
+
+            var response = await _httpclientconnection.SaveOrUpdateDatosFiscales(datos);
+            return Redirect("Index");
         }
     }
 }

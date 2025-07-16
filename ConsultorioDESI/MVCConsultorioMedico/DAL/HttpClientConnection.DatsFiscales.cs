@@ -20,5 +20,15 @@ namespace MVCConsultorioMedico.DAL
 
             return JsonConvert.DeserializeObject<ObjDatosFiscales>(response);
         }
+
+        public async Task<ObjDatosFiscales> SaveOrUpdateDatosFiscales(ObjDatosFiscales datos)
+        {
+            var response = await RequestAsync($"api/DatosFiscales", System.Net.Http.HttpMethod.Post, datos,
+                new Func<string, ObjDatosFiscales>((responseString) =>
+                {
+                    return JsonConvert.DeserializeObject<ObjDatosFiscales>(responseString);
+                }));
+            return response;
+        }
     }
 }
