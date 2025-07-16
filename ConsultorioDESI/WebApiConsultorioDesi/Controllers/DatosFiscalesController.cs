@@ -22,6 +22,15 @@ namespace WebApiConsultorioDesi.Controllers
             dbwrapper = new DbWrapper();
         }
 
+        //Obtener todos los datos fiscales
+        [HttpGet]
+        [Route("List")]
+        public List<ObjDatosFiscales> GetAllDatosFiscales()
+        {
+            var response = dbwrapper.GetAllDatosFiscales();
+            return response;
+        }
+
         //obtener datos fiscales por id
         [HttpGet]
         [Route("{id:long}")]
@@ -42,18 +51,11 @@ namespace WebApiConsultorioDesi.Controllers
 
         //Actualizar y guardar
         [HttpPost]
-        [Route("saveorupdate")]
-        public IHttpActionResult SaveOrUpdateDatosFiscales([FromBody] ObjDatosFiscales datos)
+        [Route("")]
+        public ObjDatosFiscales SaveOrUpdateDatosFiscales(ObjDatosFiscales datos)
         {
-            try
-            {
-                dbwrapper.SaveOrUpdateDatosFiscales(datos.Id, datos.RFC, datos.RazonSocial, datos.DireccionSocial, datos.Email, datos.Regimen, datos.EmpresaId, datos.CreatedBy, datos.CreatedDt, datos.UpdatedBy, datos.UpdatedDt.GetValueOrDefault());
-                return Ok("La consulta se realizo con exito");
-            }
-            catch (Exception ex)
-            {
-                return InternalServerError(ex);
-            }
+            var response = dbwrapper.SaveOrUpdateDatosFiscales(datos);
+            return response;
         }
     }
 }
