@@ -12,5 +12,10 @@ namespace MVCConsultorioMedico.Controllers
         {
             return View();
         }
+
+        public ActionResult LogIn()
+        {
+            return View();
+        }
     }
 }

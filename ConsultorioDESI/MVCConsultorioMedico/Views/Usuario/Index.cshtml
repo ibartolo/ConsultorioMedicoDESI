@@ -9,45 +9,51 @@
 <h2>Usuarios</h2>
 
 
-@using (Html.BeginForm("SaveOrUpdateUsuario", "Usuario", FormMethod.Post, new { @id = "frmUsuario", @name = "frmUsuario" }))
-{
-    @Html.HiddenFor(x => x.Id)
-    @Html.HiddenFor(x => x.CreatedDt)
-    @Html.HiddenFor(x => x.CreatedBy)
-    @Html.HiddenFor(x => x.UpdatedBy)
-    @Html.HiddenFor(x => x.UpdatedDt)
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("SaveOrUpdateUsuario", "Usuario", FormMethod.Post, new { @id = "frmUsuario", @name = "frmUsuario" }))
+        {
+            @Html.HiddenFor(x => x.Id)
+            @Html.HiddenFor(x => x.CreatedDt)
+            @Html.HiddenFor(x => x.CreatedBy)
+            @Html.HiddenFor(x => x.UpdatedBy)
+            @Html.HiddenFor(x => x.UpdatedDt)
 
 
-    <div class="row form-group">
-        <div class="col-md-4">
-            <label>Nombre de usuario</label>
-            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
-        </div>
-        <div class="col-md-4">
-            <label>Contraseña</label>
-            @Html.TextBoxFor(m => m.Pass, new { @class = "form-control" })
-        </div>
-        <div class="col-md-4">
-            <label>Email</label>
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-        </div>
+            <div class="row form-group">
+                <div class="col-md-4">
+                    <label>Nombre de usuario</label>
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    <label>Contraseña</label>
+                    @Html.TextBoxFor(m => m.Pass, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    <label>Email</label>
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col-md-6">
+                    <label>Nombre</label>
+                    @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control" })
+                </div>
+                <div class="col-md-6">
+                    <label>Apellido</label>
+                    @Html.TextBoxFor(m => m.Apellido, new { @class = "form-control" })
+                </div>
+
+            </div>
+
+            <div class="row form-group">
+                <div class="col-md-12">
+                    <button class="btn btn-success notika-btn-success waves-effect" id="btnGuardar">Guardar</button>
+                </div>
+            </div>
+        }
     </div>
-
-    <div class="row form-group">
-        <div class="col-md-6">
-            <label>Nombre</label>
-            @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control" })
-        </div>
-        <div class="col-md-6">
-            <label>Apellido</label>
-            @Html.TextBoxFor(m => m.Apellido, new { @class = "form-control" })
-        </div>
-
-    </div>
-
-    <div class="row form-group">
-        <input type="button" , name="Guardar" , id="btnGuardar" , value="Guardar" , class="btn btn-success" />
-    </div>
-}
+</div>
 
 <script src="~/Scripts/Usuario/Index.js"></script>
