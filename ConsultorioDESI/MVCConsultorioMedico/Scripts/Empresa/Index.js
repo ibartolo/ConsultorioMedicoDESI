@@ -1,5 +1,53 @@
 ﻿$(document).ready(function () {
     ValidarDatos();
+
+    $('#tblEmpresa').DataTable({
+        columns: [
+            {
+                title: "Id",
+                data: "Id",
+                visible: false
+            },
+            {
+                title: "Nombre",
+                data: "Nombre"
+            },
+            {
+                title: "Descripción",
+                data: "Descripcion"
+            },
+            {
+                title: "Representante",
+                data: "Representante"
+            },
+            {
+                title: "TelContacto",
+                data: "TelContacto"
+            },
+            {
+                title: "EmailContacto",
+                data: "EmailContacto"
+            }
+        ]
+    });
+
+
+    $.ajax({
+        type: 'get',
+        url: "/Empresa/GetAllEmpresas",
+        cache: false,
+        dataType: 'json',
+        contentType: 'application/json',
+        success: function (data) {
+            
+            console.log(data)
+
+            $("#tblEmpresa").dataTable().fnAddData(data);
+        },
+        error: function (xhr) {
+            console.log(xhr)
+        }
+    });
 });
 
 function ValidarDatos() {

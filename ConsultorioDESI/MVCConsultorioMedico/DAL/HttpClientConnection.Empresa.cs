@@ -21,6 +21,16 @@ namespace MVCConsultorioMedico.DAL
 
             return JsonConvert.DeserializeObject<ObjEmpresa>(response);
         }
+        public async Task<List<ObjEmpresa>> GetAllEmpresa()
+        {
+            var response = await RequestAsync($"api/Empresa/List", System.Net.Http.HttpMethod.Get, null,
+                new Func<string, string>((responseString) =>
+                {
+                    return responseString;
+                }));
+
+            return JsonConvert.DeserializeObject<List<ObjEmpresa>>(response);
+        }
         public async Task<ObjEmpresa> SaveOrUpdateEmpresa(ObjEmpresa obj)
         {
             var response = await RequestAsync($"api/Empresa", System.Net.Http.HttpMethod.Post, obj,
