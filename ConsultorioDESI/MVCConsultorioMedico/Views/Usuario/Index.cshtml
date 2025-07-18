@@ -8,18 +8,16 @@
 
 <h2>Usuarios</h2>
 
+@using (Html.BeginForm("SaveOrUpdateUsuario", "Usuario", FormMethod.Post, new { @id = "frmUsuario", @name = "frmUsuario" }))
+{
+    @Html.HiddenFor(x => x.Id)
+    @Html.HiddenFor(x => x.CreatedDt)
+    @Html.HiddenFor(x => x.CreatedBy)
+    @Html.HiddenFor(x => x.UpdatedBy)
+    @Html.HiddenFor(x => x.UpdatedDt)
 
-<div class="row">
-    <div class="col-md-12">
-        @using (Html.BeginForm("SaveOrUpdateUsuario", "Usuario", FormMethod.Post, new { @id = "frmUsuario", @name = "frmUsuario" }))
-        {
-            @Html.HiddenFor(x => x.Id)
-            @Html.HiddenFor(x => x.CreatedDt)
-            @Html.HiddenFor(x => x.CreatedBy)
-            @Html.HiddenFor(x => x.UpdatedBy)
-            @Html.HiddenFor(x => x.UpdatedDt)
-
-
+    <div class="row">
+        <div class="col-md-12">
             <div class="row form-group">
                 <div class="col-md-4">
                     <label>Nombre de usuario</label>
@@ -52,8 +50,8 @@
                     <button class="btn btn-success notika-btn-success waves-effect" id="btnGuardar">Guardar</button>
                 </div>
             </div>
-        }
+        </div>
     </div>
-</div>
+}
 
 <script src="~/Scripts/Usuario/Index.js"></script>
