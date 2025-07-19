@@ -31,7 +31,6 @@
         ]
     });
 
-
     $.ajax({
         type: 'get',
         url: "/Empresa/GetAllEmpresas",
