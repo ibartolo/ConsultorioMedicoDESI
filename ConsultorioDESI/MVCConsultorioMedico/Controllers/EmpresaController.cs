@@ -30,7 +30,6 @@ namespace MVCConsultorioMedico.Controllers
             
             return View(obj);
         }
-
         public async Task<ActionResult> SaveOrUpdateEmpresa(ObjEmpresa obj)
         {
             obj.CreatedDt = DateTime.Now;
@@ -40,6 +39,13 @@ namespace MVCConsultorioMedico.Controllers
 
             await _httpclientconnection.SaveOrUpdateEmpresa(obj);
             return Redirect("Index");
+        }
+        
+        public async Task<string> GetAllEmpresas()
+        {
+            var response = await _httpclientconnection.GetAllEmpresa();
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(response);
         }
     }
 }
