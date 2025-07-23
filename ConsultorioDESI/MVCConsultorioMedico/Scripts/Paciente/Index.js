@@ -1,5 +1,50 @@
 ﻿$(document).ready(function () {
     ValidarDatos();
+
+    $('#tblPaciente').DataTable({
+        columns: [
+            {
+                title: "Nombre",
+                data: "Nombre"
+            },
+            {
+                title: "Género",
+                data: "Genero"
+            },
+            {
+                title: "Fecha Nacimiento",
+                data: "FechaNacimiento"
+            },
+            {
+                title: "Teléfono",
+                data: "Telefono"
+            },
+            {
+                title: "Email",
+                data: "Email"
+            },
+            {
+                title: "Fecha Recepción",
+                data: "FechaRecepcion"
+            }
+        ]
+
+    });
+
+    $.ajax({
+        //configuracion de la tabla tipo, visibilidad, columnas, que recibe y que envia
+        type: 'get',
+        url: "/Paciente/GetAllPacientes",
+        contentType: 'application/json',
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+            $('#tblPaciente').dataTable().fnAddData(data);
+        },
+        error: function (xhr) {
+            console.log(xhr);
+        }
+    });
 });
 
 function ValidarDatos() {

@@ -12,6 +12,8 @@ namespace MVCConsultorioMedico.Controllers
 {
     public class UsuarioController : Controller
     {
+        public HttpClientConnection _httpclientconnection = new HttpClientConnection();
+
         // GET: Usuario
         public async Task<ActionResult> Index(long id = 0)
         {
@@ -19,7 +21,7 @@ namespace MVCConsultorioMedico.Controllers
 
             if (id != 0)
             {
-                obj = await new HttpClientConnection().GetUsuarioById(id);
+                obj = await _httpclientconnection.GetUsuarioById(id);
             }
             else
             {
@@ -36,8 +38,15 @@ namespace MVCConsultorioMedico.Controllers
             obj.CreatedBy = "Victor";
             obj.UpdatedBy = "Victor";
 
-            await new HttpClientConnection().SaveOrUpdateUsuario(obj);
+            await _httpclientconnection.SaveOrUpdateUsuario(obj);
             return Redirect("Index");
+        }
+
+        public async Task<string> GetAllUsuario()
+        {
+            var response = await _httpclientconnection.GetAllUsuario();
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(response);
         }
     }
 }

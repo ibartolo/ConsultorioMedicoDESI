@@ -1,6 +1,56 @@
 ﻿$(document).ready(function () {
     ValidarDatosUsuario();
+
+    $('#tblUsuario').DataTable({
+        columns: [
+            {
+                title: "Id",
+                data: "Id",
+                visible: false
+            },
+            {
+                title: "Usuario",
+                data: "UserName"
+            },
+            {
+                title: "Contraseña",
+                data: "Pass"
+            },
+            {
+                title: "Correo Electronico",
+                data: "Email"
+            },
+            {
+                title: "Nombre",
+                data: "Nombre"
+            },
+            {
+                title: "Apellido",
+                data: "Apellido"
+            }
+        ]
+    });
+
+    $.ajax({
+        type: 'get',
+        url: '/Usuario/GetAllUsuario',
+        dataType: 'json',
+        contentType: 'application/json',
+        success: function (data) {
+            console.log(data)
+            $('#tblUsuario').dataTable().fnAddData(data);
+        },
+        error: function (xhr) {
+            console.log(xhr)
+        }
+    });
 });
+
+
+
+
+
+
 
 function ValidarDatosUsuario(){
     $("#frmUsuario").validate({

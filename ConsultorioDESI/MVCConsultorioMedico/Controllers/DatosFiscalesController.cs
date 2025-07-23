@@ -32,5 +32,11 @@ namespace MVCConsultorioMedico.Controllers
             var response = await _httpclientconnection.SaveOrUpdateDatosFiscales(datos);
             return Redirect("Index");
         }
+
+        public async Task<string> GetAllDatosFiscales()
+        {
+            var response = await _httpclientconnection.GetAllDatosFiscales();
+            return Newtonsoft.Json.JsonConvert.SerializeObject(response);
+        }
     }
 }

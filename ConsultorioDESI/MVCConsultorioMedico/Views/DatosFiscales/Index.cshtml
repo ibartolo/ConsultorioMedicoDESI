@@ -30,7 +30,7 @@
         </div>
         <div class="col-md-4">
             <label>Dirección:</label>
-            @Html.TextBoxFor(m => m.DireccionSocial, new { @class = "form-control" })
+            @Html.TextBoxFor(m => m.Direccion, new { @class = "form-control" })
         </div>
     </div>
 
@@ -50,6 +50,14 @@
             <button class="btn btn-success notika-btn-success waves-effect" id="btnGuardar">Guardar</button>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <table id="tblDatos" class="table"></table>    
+        </div>    
+    </div>
 }
 
 <script src="~/Scripts/DatosFiscales/DatosFiscales.js"></script>
+<link href="~/Attachment/JqueeyDatatable/jquery.dataTables.min.css" rel="stylesheet" />
+<script src="~/Attachment/JqueeyDatatable/jquery.dataTables.min.js"></script>

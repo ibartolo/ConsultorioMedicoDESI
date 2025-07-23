@@ -52,5 +52,11 @@ namespace MVCConsultorioMedico.Controllers
             await _httpclientconnection.SaveOrUpdatePaciente(obj);
             return Redirect("Index");
         }
+
+        public async Task<string> GetAllPacientes()
+        {
+            var response = await _httpclientconnection.GetAllPaciente();
+            return Newtonsoft.Json.JsonConvert.SerializeObject(response);
+        }
     }
 }
