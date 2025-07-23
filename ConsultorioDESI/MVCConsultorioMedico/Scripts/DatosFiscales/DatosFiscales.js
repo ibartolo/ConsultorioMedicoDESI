@@ -1,6 +1,32 @@
 ﻿$(document).ready(function () {
     ValidarDatos();
+
+    $("#tblDatos").DataTable({
+        columns: [
+            { title: "Id", data: "Id", visible: false },
+            { title: "RFC", data: "RFC" },
+            { title: "Direccion", data: "Direccion"},
+            { title: "RazonSocial", data: "RazonSocial" },
+            { title: "Email", data: "Email" }
+        ]
+    });
+
+    $.ajax({
+        type: 'get',
+        dataType: 'json',
+        contentType: 'application/json',
+        url: "/DatosFiscales/GetAllDatosFiscales",
+        success: function (data) {
+            console.log(data)
+
+            $("#tblDatos").dataTable().fnAddData(data);
+        },
+        error: function (xhr) {
+            console.log(xhr)
+        }
+    });
 });
+
 
 function ValidarDatos() {
     $("#frmDatosFiscales").validate({

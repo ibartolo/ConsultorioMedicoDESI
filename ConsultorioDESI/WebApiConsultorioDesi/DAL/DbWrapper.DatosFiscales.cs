@@ -65,7 +65,7 @@ namespace WebApiConsultorioDesi.DAL
                 new SqlParameter()
                 {
                     ParameterName="@Direccion", 
-                    Value=datos.DireccionSocial
+                    Value=datos.Direccion
                 },
                 new SqlParameter()
                 {
