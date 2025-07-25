@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using static MVCConsultorioMedico.Helpers.FilterHerlper;
 
 namespace MVCConsultorioMedico.Controllers
 {
     public class HomeController : Controller
     {
+        [Autenticated]
         public ActionResult Index()
         {
             return View();
         }
-
+        [NoAutenticated]
         public ActionResult LogIn()
         {
             return View();

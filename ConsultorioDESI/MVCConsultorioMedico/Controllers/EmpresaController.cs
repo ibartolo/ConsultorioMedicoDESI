@@ -6,9 +6,11 @@ using System.Web;
 using System.Web.Mvc;
 using MVCConsultorioMedico.Models;
 using MVCConsultorioMedico.DAL;
+using static MVCConsultorioMedico.Helpers.FilterHerlper;
 
 namespace MVCConsultorioMedico.Controllers
 {
+    [Autenticated]
     public class EmpresaController : BaseController
     {
         public HttpClientConnection _httpclientconnection = new HttpClientConnection();
@@ -40,7 +42,6 @@ namespace MVCConsultorioMedico.Controllers
             await _httpclientconnection.SaveOrUpdateEmpresa(obj);
             return Redirect("Index");
         }
-        
         public async Task<string> GetAllEmpresas()
         {
             var response = await _httpclientconnection.GetAllEmpresa();

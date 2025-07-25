@@ -275,11 +275,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\FilterHerlper.cs" />
+    <Compile Include="Helpers\SessionHelper.cs" />
     <Compile Include="Models\BaseObject.cs" />
     <Compile Include="Models\ObjDatosFiscales.cs" />
     <Compile Include="Models\ObjEmpresa.cs" />
     <Compile Include="Models\ObjPaciente.cs" />
     <Compile Include="Models\ObjUsuario.cs" />
+    <Compile Include="Models\Seguridad\Token.cs" />
+    <Compile Include="Models\Seguridad\TokenCookie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
