@@ -43,7 +43,6 @@ namespace MVCConsultorioMedico.Controllers
 
             return JsonConvert.SerializeObject(tokenResponse);
         }
-
         #endregion
     }
 }
