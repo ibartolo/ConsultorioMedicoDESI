@@ -33,6 +33,8 @@ namespace MVCConsultorioMedico.DAL
         }
         public async Task<ObjEmpresa> SaveOrUpdateEmpresa(ObjEmpresa obj)
         {
+            MappingColumnSecurity(obj);
+
             var response = await RequestAsync($"api/Empresa", System.Net.Http.HttpMethod.Post, obj,
                 new Func<string, ObjEmpresa>((responseString) =>
                 {

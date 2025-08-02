@@ -252,8 +252,10 @@
     <Content Include="Attachment\style.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\Comun\Comun.js" />
     <Content Include="Scripts\DatosFiscales\DatosFiscales.js" />
     <Content Include="Scripts\Empresa\Index.js" />
+    <Content Include="Scripts\Home\LogIn.js" />
     <Content Include="Scripts\Paciente\Index.js" />
     <Content Include="Scripts\Tratamiento\Index.js" />
     <Content Include="Scripts\Usuario\Index.js" />

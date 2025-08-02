@@ -7,6 +7,8 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using System.Web;
 using System.Text;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace MVCConsultorioMedico.DAL
 {
@@ -45,6 +47,35 @@ namespace MVCConsultorioMedico.DAL
 				{
 					return default(T);
 				}
+			}
+		}
+
+		public async Task<T> TokenAsync<T>(string endPoint, IEnumerable<KeyValuePair<string, string>> content, string contenType = "application/json")
+		{
+			SetParameterHeader(contenType, string.Empty);
+            using (HttpResponseMessage httpResponseMessage = await httpClient.PostAsync(endPoint, new FormUrlEncodedContent(content)))
+            {
+                if (httpResponseMessage.IsSuccessStatusCode)
+                {
+                    using (var st = new StreamReader(await httpResponseMessage.Content.ReadAsStreamAsync()))
+                    {
+                        return JsonConvert.DeserializeObject<T>(await st.ReadToEndAsync());
+                    }
+                }
+                else
+                {
+                    return default(T);
+                }
+            }
+        }
+
+		private void SetParameterHeader(string contenType, string token)
+		{
+			httpClient.DefaultRequestHeaders.Clear();
+			httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue(contenType));
+			if (!string.IsNullOrEmpty(token))
+			{
+				httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
 			}
 		}
 	}
