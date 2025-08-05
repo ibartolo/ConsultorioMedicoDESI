@@ -22,6 +22,7 @@ namespace MVCConsultorioMedico.DAL
 
         public async Task<ObjUsuario> SaveOrUpdateUsuario(ObjUsuario obj)
         {
+            MappingColumnSecurity(obj);
             var response = await RequestAsync($"api/Usuario", System.Net.Http.HttpMethod.Post, obj,
                 new Func<string, ObjUsuario>((responseString) => {
                     return JsonConvert.DeserializeObject<ObjUsuario>(responseString);
