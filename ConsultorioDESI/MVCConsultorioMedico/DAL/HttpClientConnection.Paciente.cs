@@ -35,6 +35,7 @@ namespace MVCConsultorioMedico.DAL
         //Guardar o actualizar paciente
         public async Task<ObjPaciente> SaveOrUpdatePaciente(ObjPaciente obj)
         {
+            MappingColumnSecurity(obj);
             var response = await RequestAsync($"api/Paciente", System.Net.Http.HttpMethod.Post, obj,
                 new Func<string, ObjPaciente>((responseString) =>
                 {

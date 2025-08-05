@@ -36,10 +36,6 @@ namespace MVCConsultorioMedico.Controllers
 
         public async Task<ActionResult> SaveOrUpdateCatalogoTratamiento(ObjTratamiento obj)
         {
-            obj.CreatedDt = DateTime.Now;
-            obj.UpdatedDt = DateTime.Now;
-            obj.CreatedBy = "Victor";
-            obj.UpdatedBy = "Victor";
             await _httpclientconnection.SaveOrUpdateCatalogoTratamiento(obj);
             return Redirect("Index");
         }

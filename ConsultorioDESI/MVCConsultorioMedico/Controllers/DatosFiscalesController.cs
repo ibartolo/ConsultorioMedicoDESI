@@ -24,12 +24,7 @@ namespace MVCConsultorioMedico.Controllers
 
         public async Task<ActionResult> SaveOrUpdateDatosFiscales(ObjDatosFiscales datos)
         {
-            datos.CreatedDt = DateTime.Now;
-            datos.UpdatedDt = DateTime.Now;
-            datos.CreatedBy = "Victor";
-            datos.UpdatedBy = "Victor";
-
-            var response = await _httpclientconnection.SaveOrUpdateDatosFiscales(datos);
+            await _httpclientconnection.SaveOrUpdateDatosFiscales(datos);
             return Redirect("Index");
         }
 

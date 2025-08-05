@@ -20,6 +20,7 @@ namespace MVCConsultorioMedico.DAL
             }
             else
             {
+                //error de guardado
                 bo.UpdatedBy = SessionHelper.GetSessionUser().UserName;
                 bo.UpdatedDt = DateTime.Now;
             }

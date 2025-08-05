@@ -23,6 +23,7 @@ namespace MVCConsultorioMedico.DAL
 
         public async Task<ObjDatosFiscales> SaveOrUpdateDatosFiscales(ObjDatosFiscales datos)
         {
+            MappingColumnSecurity(datos);
             var response = await RequestAsync($"api/DatosFiscales", System.Net.Http.HttpMethod.Post, datos,
                 new Func<string, ObjDatosFiscales>((responseString) =>
                 {
