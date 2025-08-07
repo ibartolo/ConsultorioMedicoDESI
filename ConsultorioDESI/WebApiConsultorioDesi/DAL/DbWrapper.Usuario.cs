@@ -70,26 +70,27 @@ namespace WebApiConsultorioDesi.DAL
             return response;
         }
 
-        public long SaveOrUpdateUsuario(long id, string username, string pass, string email, string nombre, string apellido, string createdby, DateTime createddt, string updatedby, DateTime updateddt)
+        public ObjUsuario SaveOrUpdateUsuario(ObjUsuario obj)
         {
             //Asignando valores
             var parametros = new List<SqlParameter>()
             {
-                new SqlParameter("@Id", id),
-                new SqlParameter("@UserName", username),
-                new SqlParameter("@Pass", pass),
-                new SqlParameter("@Email", email),
-                new SqlParameter("@Nombre", nombre), 
-                new SqlParameter("@Apellido", apellido),
-                new SqlParameter("@CreatedBy", createdby),
-                new SqlParameter("@CreatedDt", createddt),
-                new SqlParameter("@UpdatedBy", updatedby),
-                new SqlParameter("@UpdatedDt", updateddt)
+                new SqlParameter("@Id", obj.Id),
+                new SqlParameter("@UserName", obj.UserName),
+                new SqlParameter("@Pass", obj.Pass),
+                new SqlParameter("@Email", obj.Email),
+                new SqlParameter("@Nombre", obj.Nombre), 
+                new SqlParameter("@Apellido", obj.Apellido),
+                new SqlParameter("@CreatedBy", obj.CreatedBy),
+                new SqlParameter("@CreatedDt", obj.CreatedDt),
+                new SqlParameter("@UpdatedBy", obj.UpdatedBy),
+                new SqlParameter("@UpdatedDt", obj.UpdatedDt)
             };
 
             object resultado = ExecuteScalar("SaveOrUpdateUsuario", System.Data.CommandType.StoredProcedure, parametros);
 
-            return Convert.ToInt64(resultado);
+            obj.Id = Convert.ToInt64(resultado);
+            return obj;
         }
 
         public void DeleteUsuario(long id)
