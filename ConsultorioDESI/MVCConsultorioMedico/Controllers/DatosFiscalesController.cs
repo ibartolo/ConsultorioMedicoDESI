@@ -13,13 +13,19 @@ namespace MVCConsultorioMedico.Controllers
     {
         public HttpClientConnection _httpclientconnection = new HttpClientConnection();
         // GET: DatosFiscales
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(long id = 0)
         {
-            ObjDatosFiscales obj = new ObjDatosFiscales();
-            
-            obj = await _httpclientconnection.GetDatosFiscalesById(2);
+            ObjDatosFiscales obj = null;
 
-            return View(obj);
+            if (id != 0)
+            {
+                obj = await _httpclientconnection.GetDatosFiscalesById(id);
+            }
+            else
+            {
+                obj = new ObjDatosFiscales();
+            }
+                return View(obj);
         }
 
         public async Task<ActionResult> SaveOrUpdateDatosFiscales(ObjDatosFiscales datos)

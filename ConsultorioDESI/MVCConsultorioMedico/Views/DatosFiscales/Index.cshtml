@@ -11,7 +11,6 @@
 @using (Html.BeginForm("SaveOrUpdateDatosFiscales", "DatosFiscales", FormMethod.Post, new { @id = "frmDatosFiscales", @name = "frmDatosFiscales" }))
 {
     @Html.HiddenFor(x => x.Id)
-    @Html.HiddenFor(x => x.EmpresaId)
     @Html.HiddenFor(x => x.Estatus)
     @Html.HiddenFor(x => x.CreatedDt)
     @Html.HiddenFor(x => x.CreatedBy)
@@ -35,13 +34,17 @@
     </div>
 
     <div class="row form-group">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <label>Email</label>
             @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <label>Regimen</label>
             @Html.TextBoxFor(m => m.Regimen, new { @class = "form-control" })
+        </div>
+        <div class="col-md-4">
+            <label>Empresa Id</label>
+            @Html.TextBoxFor(m => m.EmpresaId, new { @class = "form-control" })
         </div>
     </div>
 

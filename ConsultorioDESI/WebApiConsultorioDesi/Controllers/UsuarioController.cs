@@ -43,7 +43,7 @@ namespace WebApiConsultorioDesi.Controllers
         //obtener usuario por username y password
         [HttpPost]
         [Route("Login")]
-        public IHttpActionResult GetUsuarioByUserNameAndPass([FromBody] ObjUsuario usuario)
+        public IHttpActionResult GetUsuarioByUserNameAndPass(ObjUsuario usuario)
         {
             var response = dbwrapper.GetUsuarioByUserNameAndPass(usuario.UserName, usuario.Pass);
             return Ok(response);
@@ -51,17 +51,11 @@ namespace WebApiConsultorioDesi.Controllers
 
         //Actualizar y guardar
         [HttpPost]
-        [Route("saveorupdate")]
-        public IHttpActionResult SaveOrUpdateUsuario(long id, string username, string pass, string email, string nombre, string apellido, string createdby, DateTime createddt, string updatedby, DateTime updateddt)
+        [Route("")]
+        public ObjUsuario SaveOrUpdateUsuario(ObjUsuario obj)
         {
-            try
-            {
-                dbwrapper.SaveOrUpdateUsuario(id, username, pass, email, nombre, apellido, createdby, createddt, updatedby, updateddt);
-                return Ok("Se ha registrado los datos con exito");
-            }catch(Exception ex)
-            {
-                return InternalServerError(ex);
-            }
+            var response = dbwrapper.SaveOrUpdateUsuario(obj);
+            return response;
         }
 
         //Borrar usuario
