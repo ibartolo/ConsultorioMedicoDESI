@@ -7,12 +7,13 @@ using System.Web;
 using System.Web.Mvc;
 using MVCConsultorioMedico.DAL;
 using System.Configuration;
+using static MVCConsultorioMedico.Helpers.FilterHerlper;
 
 namespace MVCConsultorioMedico.Controllers
 {
+    [Autenticated]
     public class PacienteController : BaseController
     {
-        HttpClientConnection _httpclientconnection = new HttpClientConnection();
         // GET: Paciente (funcion asincrona)
         public async Task<ActionResult> Index(long id = 0)
         {
@@ -20,7 +21,7 @@ namespace MVCConsultorioMedico.Controllers
 
             if(id != 0)
             { 
-                obj = await _httpclientconnection.GetPacienteById(id);
+                obj = await httpClientConnection.GetPacienteById(id);
             }
             else
             {
@@ -45,13 +46,13 @@ namespace MVCConsultorioMedico.Controllers
 
         public async Task<ActionResult> SaveOrUpdatePaciente(ObjPaciente obj)
         {
-            await _httpclientconnection.SaveOrUpdatePaciente(obj);
+            await httpClientConnection.SaveOrUpdatePaciente(obj);
             return Redirect("Index");
         }
 
         public async Task<string> GetAllPacientes()
         {
-            var response = await _httpclientconnection.GetAllPaciente();
+            var response = await httpClientConnection.GetAllPaciente();
             return Newtonsoft.Json.JsonConvert.SerializeObject(response);
         }
     }

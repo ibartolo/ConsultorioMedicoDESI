@@ -8,8 +8,6 @@
 
 <h2>Paciente</h2>
 
-
-
 @using (Html.BeginForm("SaveOrUpdatePaciente", "Paciente", FormMethod.Post, new { @name = "frmPaciente", @id = "frmPaciente" }))
 {
     @Html.HiddenFor(x => x.Id);
