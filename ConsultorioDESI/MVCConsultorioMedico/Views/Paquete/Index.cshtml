@@ -1,0 +1,50 @@
+﻿@model MVCConsultorioMedico.Models.ObjPaquete
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+
+<h2>Paquetes</h2>
+
+@using (Html.BeginForm("SaveOrUpdatePaquete", "Paquete", FormMethod.Post, new {@id = "frmPaquete", @name = "frmPaquete" }))
+ {
+    @Html.HiddenFor(m=>m.Id)
+    @Html.HiddenFor(m=>m.Estatus)
+    @Html.HiddenFor(m=>m.CreatedBy)
+    @Html.HiddenFor(m=>m.CreatedDt)
+    @Html.HiddenFor(m=>m.UpdatedBy)
+    @Html.HiddenFor(m=>m.UpdatedDt)
+
+    <div class="row form-group">
+        <div class="col-md-6">
+            <label>Paquete</label>
+            @Html.TextBoxFor(m => m.NombrePaquete, new {@class = "form-control"})
+        </div>
+        <div class="col-md-6">
+            <label>Precio</label>
+            @Html.TextBoxFor(m => m.Costo, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-12">
+            <label>Descripción</label>
+            @Html.TextBoxFor(m => m.Descripcion, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-4">
+            <button type="submit" id="btnGuardar" class="btn btn-success notika-btn-success waves-effect">Guardar</button>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-12">
+            <table id="tblPaquete" class="table"></table>
+        </div>
+    </div>
+ }
+
+<script src="~/Scripts/Paquete/Index.js"></script>
+<link href="~/Attachment/JqueeyDatatable/jquery.dataTables.min.css" rel="stylesheet" />
+<script src="~/Attachment/JqueeyDatatable/jquery.dataTables.min.js"></script>

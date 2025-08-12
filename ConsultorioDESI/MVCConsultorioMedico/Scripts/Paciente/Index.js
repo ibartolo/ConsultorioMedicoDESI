@@ -32,7 +32,6 @@
     });
 
     $.ajax({
-        //configuracion de la tabla tipo, visibilidad, columnas, que recibe y que envia
         type: 'get',
         url: "/Paciente/GetAllPacientes",
         contentType: 'application/json',

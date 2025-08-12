@@ -13,16 +13,13 @@ namespace MVCConsultorioMedico.Controllers
     [Autenticated]
     public class EmpresaController : BaseController
     {
-        public HttpClientConnection _httpclientconnection = new HttpClientConnection();
-
-        // GET: Empresa
         public async Task<ActionResult> Index(long id = 0)
         {
             ObjEmpresa obj = null;
 
             if (id != 0)
             {
-                obj = await _httpclientconnection.GetEmpresaById(id);
+                obj = await httpClientConnection.GetEmpresaById(id);
             }
             else
             {
@@ -34,12 +31,12 @@ namespace MVCConsultorioMedico.Controllers
         }
         public async Task<ActionResult> SaveOrUpdateEmpresa(ObjEmpresa obj)
         {
-            await _httpclientconnection.SaveOrUpdateEmpresa(obj);
+            await httpClientConnection.SaveOrUpdateEmpresa(obj);
             return Redirect("Index");
         }
         public async Task<string> GetAllEmpresas()
         {
-            var response = await _httpclientconnection.GetAllEmpresa();
+            var response = await httpClientConnection.GetAllEmpresa();
 
             return Newtonsoft.Json.JsonConvert.SerializeObject(response);
         }

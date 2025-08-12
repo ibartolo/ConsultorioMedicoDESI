@@ -176,6 +176,7 @@
     <Compile Include="Controllers\DatosFiscalesController.cs" />
     <Compile Include="Controllers\EmpresaController.cs" />
     <Compile Include="Controllers\PacienteController.cs" />
+    <Compile Include="Controllers\PaqueteController.cs" />
     <Compile Include="Controllers\TratamientoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="DAL\BaseDbWrapper.cs" />
@@ -183,6 +184,7 @@
     <Compile Include="DAL\DbWrapper.DatosFiscales.cs" />
     <Compile Include="DAL\DbWrapper.Empresa.cs" />
     <Compile Include="DAL\DbWrapper.Paciente.cs" />
+    <Compile Include="DAL\DbWrapper.Paquete.cs" />
     <Compile Include="DAL\DbWrapper.Tratamiento.cs" />
     <Compile Include="DAL\DbWrapper.Usuario.cs" />
     <Compile Include="Global.asax.cs">
@@ -191,6 +193,7 @@
     <Compile Include="Models\BaseObject.cs" />
     <Compile Include="Models\ObjDatosFiscales.cs" />
     <Compile Include="Models\ObjEmpresa.cs" />
+    <Compile Include="Models\ObjPaquete.cs" />
     <Compile Include="Models\ObjTratamiento.cs" />
     <Compile Include="Models\ObjUsuario.cs" />
     <Compile Include="Models\ObjPaciente.cs" />

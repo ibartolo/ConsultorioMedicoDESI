@@ -7,13 +7,12 @@ using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-
+using static MVCConsultorioMedico.Helpers.FilterHerlper;
 namespace MVCConsultorioMedico.Controllers
 {
-    public class UsuarioController : Controller
+    [Autenticated]
+    public class UsuarioController : BaseController
     {
-        public HttpClientConnection _httpclientconnection = new HttpClientConnection();
-
         // GET: Usuario
         public async Task<ActionResult> Index(long id = 0)
         {
@@ -21,7 +20,7 @@ namespace MVCConsultorioMedico.Controllers
 
             if (id != 0)
             {
-                obj = await _httpclientconnection.GetUsuarioById(id);
+                obj = await httpClientConnection.GetUsuarioById(id);
             }
             else
             {
@@ -33,13 +32,13 @@ namespace MVCConsultorioMedico.Controllers
 
         public async Task<ActionResult> SaveOrUpdateUsuario(ObjUsuario obj)
         {
-            await _httpclientconnection.SaveOrUpdateUsuario(obj);
+            await httpClientConnection.SaveOrUpdateUsuario(obj);
             return Redirect("Index");
         }
 
         public async Task<string> GetAllUsuario()
         {
-            var response = await _httpclientconnection.GetAllUsuario();
+            var response = await httpClientConnection.GetAllUsuario();
 
             return Newtonsoft.Json.JsonConvert.SerializeObject(response);
         }
