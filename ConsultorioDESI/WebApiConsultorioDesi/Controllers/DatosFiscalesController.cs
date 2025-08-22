@@ -10,7 +10,7 @@ using WebApiConsultorioDesi.Models;
 
 namespace WebApiConsultorioDesi.Controllers
 {
-    [Authorize]
+    [AllowAnonymous]
     [RoutePrefix("api/DatosFiscales")]
 
     public class DatosFiscalesController : ApiController

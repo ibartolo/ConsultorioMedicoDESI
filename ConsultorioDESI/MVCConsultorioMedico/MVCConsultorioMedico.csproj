@@ -258,6 +258,7 @@
     <Content Include="Scripts\Home\LogIn.js" />
     <Content Include="Scripts\Paciente\Index.js" />
     <Content Include="Scripts\Paquete\Index.js" />
+    <Content Include="Scripts\TratamientoPaquete\Index.js" />
     <Content Include="Scripts\Tratamiento\Index.js" />
     <Content Include="Scripts\Usuario\Index.js" />
     <Content Include="Web.config" />
@@ -279,6 +280,7 @@
     <Compile Include="DAL\HttpClientConnection.Paciente.cs" />
     <Compile Include="DAL\HttpClientConnection.Paquete.cs" />
     <Compile Include="DAL\HttpClientConnection.Tratamiento.cs" />
+    <Compile Include="DAL\HttpClientConnection.TratamientoPaquete.cs" />
     <Compile Include="DAL\HttpClientConnection.Usuario.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -291,6 +293,7 @@
     <Compile Include="Models\ObjPaciente.cs" />
     <Compile Include="Models\ObjPaquete.cs" />
     <Compile Include="Models\ObjTratamiento.cs" />
+    <Compile Include="Models\ObjTratamientoPaquete.cs" />
     <Compile Include="Models\ObjUsuario.cs" />
     <Compile Include="Models\Seguridad\Token.cs" />
     <Compile Include="Models\Seguridad\TokenCookie.cs" />
@@ -322,6 +325,7 @@
     <Content Include="Views\Tratamiento\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Paquete\Index.cshtml" />
+    <Content Include="Views\Tratamiento\IndexTP.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

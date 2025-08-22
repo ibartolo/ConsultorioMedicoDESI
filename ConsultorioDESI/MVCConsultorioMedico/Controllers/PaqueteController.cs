@@ -37,7 +37,7 @@ namespace MVCConsultorioMedico.Controllers
         public async Task<ActionResult> SaveOrUpdatePaquete(ObjPaquete obj)
         {
             await httpClientConnection.SaveOrUpdatePaquete(obj);
-            return Redirect("Index");
+            return Redirect("IndexTP");
         }
     }
 }

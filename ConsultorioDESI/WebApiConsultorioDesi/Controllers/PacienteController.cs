@@ -11,7 +11,7 @@ using System.Web;
 
 namespace WebApiConsultorioDesi.Controllers
 {
-    [Authorize]
+    [AllowAnonymous]
     [RoutePrefix("api/Paciente")]
 
     public class PacienteController : ApiController

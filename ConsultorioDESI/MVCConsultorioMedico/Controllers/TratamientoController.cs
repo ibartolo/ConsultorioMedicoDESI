@@ -17,7 +17,7 @@ namespace MVCConsultorioMedico.Controllers
         {
             ObjTratamiento obj = null;
 
-            if(id != 0)
+            if (id != 0)
             {
                 obj = await httpClientConnection.GetCatalogoTratamientoById(id);
             }
@@ -25,7 +25,6 @@ namespace MVCConsultorioMedico.Controllers
             {
                 obj = new ObjTratamiento();
             }
-            
             return View(obj);
         }
 
@@ -39,6 +38,56 @@ namespace MVCConsultorioMedico.Controllers
         {
             await httpClientConnection.SaveOrUpdateCatalogoTratamiento(obj);
             return Redirect("Index");
+        }
+
+
+
+
+        //parte de TratamientoPaquete
+        public async Task<ActionResult> IndexTP()
+        {
+            var listTratamiento = await httpClientConnection.GetAllCatalogoTratamiento(); //variable de elementos
+            ViewBag.ListaTratamientos = new SelectList(listTratamiento, "Id", "Nombre");
+            ViewBag.TratamientoPaquete = new ObjTratamientoPaquete();
+            return View();
+        }
+
+        public async Task<string> GetTratamientoPaqueteByTratamiento(long tratamientoId = 0)
+        {
+            ObjTratamientoPaquete obj = null;
+
+            if (tratamientoId != 0)
+            {
+                obj = await httpClientConnection.GetTratamientoPaqueteByTratamiento(tratamientoId);
+            }
+            else
+            {
+                obj = new ObjTratamientoPaquete();
+            }
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(obj);
+        }
+
+        public async Task<string> GetTratamientoPaqueteByPaquete(long paqueteId = 0)
+        {
+            ObjTratamientoPaquete obj = null;
+
+            if (paqueteId != 0)
+            {
+                obj = await httpClientConnection.GetTratamientoPaqueteByPaquete(paqueteId);
+            }
+            else
+            {
+                obj = new ObjTratamientoPaquete();
+            }
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(obj);
+        }
+
+        public async Task<ActionResult> SaveTratamientoPaquete(ObjTratamientoPaquete obj)
+        {
+            await httpClientConnection.SaveTratamientoPaquete(obj);
+            return Redirect("IndexTP");
         }
     }
 }

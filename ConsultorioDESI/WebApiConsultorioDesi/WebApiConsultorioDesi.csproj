@@ -178,6 +178,7 @@
     <Compile Include="Controllers\PacienteController.cs" />
     <Compile Include="Controllers\PaqueteController.cs" />
     <Compile Include="Controllers\TratamientoController.cs" />
+    <Compile Include="Controllers\TratamientoPaqueteController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="DAL\BaseDbWrapper.cs" />
     <Compile Include="DAL\DbWrapper.cs" />
@@ -186,6 +187,7 @@
     <Compile Include="DAL\DbWrapper.Paciente.cs" />
     <Compile Include="DAL\DbWrapper.Paquete.cs" />
     <Compile Include="DAL\DbWrapper.Tratamiento.cs" />
+    <Compile Include="DAL\DbWrapper.TratamientoPaquete.cs" />
     <Compile Include="DAL\DbWrapper.Usuario.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -195,6 +197,7 @@
     <Compile Include="Models\ObjEmpresa.cs" />
     <Compile Include="Models\ObjPaquete.cs" />
     <Compile Include="Models\ObjTratamiento.cs" />
+    <Compile Include="Models\ObjTratamientoPaquete.cs" />
     <Compile Include="Models\ObjUsuario.cs" />
     <Compile Include="Models\ObjPaciente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
