@@ -11,7 +11,7 @@ using WebApiConsultorioDesi.Models;
 
 namespace WebApiConsultorioDesi.Controllers
 {
-    [Authorize]
+    [AllowAnonymous]
     [RoutePrefix("api/Tratamiento")]
 
     public class TratamientoController : ApiController

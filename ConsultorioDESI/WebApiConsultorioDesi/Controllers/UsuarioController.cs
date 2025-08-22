@@ -10,7 +10,7 @@ using WebApiConsultorioDesi.Models;
 
 namespace WebApiConsultorioDesi.Controllers
 {
-    [Authorize]
+    [AllowAnonymous]
     [RoutePrefix("api/Usuario")]
 
     public class UsuarioController : ApiController

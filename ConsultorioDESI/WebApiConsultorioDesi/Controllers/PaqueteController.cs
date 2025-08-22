@@ -8,7 +8,7 @@ using WebApiConsultorioDesi.Models;
 
 namespace WebApiConsultorioDesi.Controllers
 {
-    [Authorize]
+    [AllowAnonymous]
     [RoutePrefix("api/Paquete")]
     public class PaqueteController : ApiController
     {
