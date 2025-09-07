@@ -18,6 +18,21 @@
 
     <div class="row form-group">
         <div class="col-md-4">
+            <label>Paquete</label>
+            <input type="text" id="NombrePaquete" class="form-control" />
+        </div>
+        <div class="col-md-4">
+            <label>Costo</label>
+            <input type="text" id="Costo" class="form-control" />
+        </div>
+        <div class="col-md-4">
+            <label>Descripcion</label>
+            <input type="text" class="form-control" id="Descripcion" />
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-md-4">
             <label>Tratamiento</label>
             @Html.DropDownListFor(m => m.TratamientoId, (SelectList)ViewBag.ListaTratamientos, new { @class = "form-control" })
         </div>
@@ -31,7 +46,7 @@
     </div>
     <div class="row form-group">
         <div class="col-md-4">
-            <button id="btnGuardar" type="button" class="btn btn-success notika-btn-success waves-effect">Guardar</button>
+            <button id="btnGuardar" type="button" class="btn btn-success notika-btn-success waves-effect" onclick="GuardarPaquete()">Guardar</button>
         </div>
     </div>
     <div class="row form-group">

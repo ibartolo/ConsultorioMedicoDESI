@@ -25,8 +25,6 @@ namespace MVCConsultorioMedico.Controllers
             {
                 obj = new ObjEmpresa();
             }
-
-            
             return View(obj);
         }
         public async Task<ActionResult> SaveOrUpdateEmpresa(ObjEmpresa obj)

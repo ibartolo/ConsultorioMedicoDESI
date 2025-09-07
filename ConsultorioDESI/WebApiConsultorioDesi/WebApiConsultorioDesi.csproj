@@ -196,6 +196,8 @@
     <Compile Include="Models\ObjDatosFiscales.cs" />
     <Compile Include="Models\ObjEmpresa.cs" />
     <Compile Include="Models\ObjPaquete.cs" />
+    <Compile Include="Models\ObjPaqueteRequest.cs" />
+    <Compile Include="Models\ObjRelacionTP.cs" />
     <Compile Include="Models\ObjTratamiento.cs" />
     <Compile Include="Models\ObjTratamientoPaquete.cs" />
     <Compile Include="Models\ObjUsuario.cs" />

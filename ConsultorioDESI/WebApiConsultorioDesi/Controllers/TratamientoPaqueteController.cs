@@ -16,7 +16,7 @@ namespace WebApiConsultorioDesi.Controllers
 
         [HttpGet]
         [Route("GetByTratamiento/{idTratamiento:long}")]
-        public List<ObjTratamientoPaquete> GetTratamientoPaqueteByTratamiento(long idTratamiento)
+        public List<ObjRelacionTP> GetTratamientoPaqueteByTratamiento(long idTratamiento)
         {
             var response = dbwrapper.GetTratamientoPaqueteByTratamiento(idTratamiento);
             return response;
@@ -24,7 +24,7 @@ namespace WebApiConsultorioDesi.Controllers
 
         [HttpGet]
         [Route("GetByPaquete/{idPaquete:long}")]
-        public List<ObjTratamientoPaquete> GetTratamientoPaqueteByPaquete(long idPaquete)
+        public List<ObjRelacionTP> GetTratamientoPaqueteByPaquete(long idPaquete)
         {
             var response = dbwrapper.GetTratamientoPaqueteByPaquete(idPaquete);
             return response;
@@ -32,10 +32,25 @@ namespace WebApiConsultorioDesi.Controllers
 
         [HttpPost]
         [Route("")]
-        public ObjTratamientoPaquete SaveTratamientoPaquete(ObjTratamientoPaquete obj)
+        public ObjPaqueteRequest SaveTratamientoPaquete([FromBody] ObjPaqueteRequest obj)
         {
-            var response = dbwrapper.SaveTratamientoPaquete(obj);
-            return response;
+            var paqueteGuardado = dbwrapper.SaveOrUpdatePaquete(obj.Paquete);
+
+            // Guardar los tratamientos asociados
+            var tratamientosGuardados = new List<ObjTratamientoPaquete>();
+            foreach (var item in obj.Tratamientos)
+            {
+                item.PaqueteId = paqueteGuardado.Id;
+                var t = dbwrapper.SaveTratamientoPaquete(item); //ya enviamos los objetos de tratamiento paquete
+                tratamientosGuardados.Add(t);
+            }
+
+            // Regresar el paquete con sus tratamientos ya guardados
+            return new ObjPaqueteRequest
+            {
+                Paquete = paqueteGuardado,
+                Tratamientos = tratamientosGuardados
+            };
         }
     }
 }

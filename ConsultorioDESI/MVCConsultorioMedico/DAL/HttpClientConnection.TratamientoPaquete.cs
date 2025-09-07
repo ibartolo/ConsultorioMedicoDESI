@@ -30,15 +30,33 @@ namespace MVCConsultorioMedico.DAL
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ObjTratamientoPaquete>(response);
         }
 
-        public async Task<ObjTratamientoPaquete> SaveTratamientoPaquete(ObjTratamientoPaquete obj)
+        //public async Task<ObjTratamientoPaquete> SaveTratamientoPaquete(ObjTratamientoPaquete obj)
+        //{
+        //    MappingColumnSecurity(obj);
+        //    var response = await RequestAsync($"api/TratamientoPaquete", System.Net.Http.HttpMethod.Post, obj,
+        //        new Func<string, ObjTratamientoPaquete>((responseString) =>
+        //        {
+        //            return Newtonsoft.Json.JsonConvert.DeserializeObject<ObjTratamientoPaquete>(responseString);
+        //        }));
+        //    return response;
+        //}
+
+        public async Task<ObjPaqueteRequest> SaveTratamientoPaquete(ObjPaqueteRequest obj)
         {
-            MappingColumnSecurity(obj);
+            MappingColumnSecurity(obj.Paquete);
+
+            foreach (var t in obj.Tratamientos)
+            {
+                MappingColumnSecurity(t);
+            }
+
             var response = await RequestAsync($"api/TratamientoPaquete", System.Net.Http.HttpMethod.Post, obj,
-                new Func<string, ObjTratamientoPaquete>((responseString) =>
+                new Func<string, ObjPaqueteRequest>((responseString) =>
                 {
-                    return Newtonsoft.Json.JsonConvert.DeserializeObject<ObjTratamientoPaquete>(responseString);
+                    return Newtonsoft.Json.JsonConvert.DeserializeObject<ObjPaqueteRequest>(responseString);
                 }));
             return response;
         }
+
     }
 }
