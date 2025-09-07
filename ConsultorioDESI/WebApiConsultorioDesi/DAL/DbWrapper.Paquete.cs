@@ -45,6 +45,10 @@ namespace WebApiConsultorioDesi.DAL
         {
             var parametros = new List<SqlParameter>()
             {
+                new SqlParameter(){
+                    Value = obj.Id,
+                    ParameterName = "@Id"
+                },
                 new SqlParameter()
                 {
                     Value = obj.NombrePaquete,
@@ -82,13 +86,9 @@ namespace WebApiConsultorioDesi.DAL
                 }
             };
 
-            var response = GetObject("SaveOrUpdatePaquete", System.Data.CommandType.StoredProcedure, parametros,
-                new Func<System.Data.IDataReader, ObjPaquete>((responseString) =>
-                {
-                    var r = FillEntity<ObjPaquete>(responseString);
-                    return r;
-                }));
-            return response;
+            var response = ExecuteScalar("SaveOrUpdatePaquete", System.Data.CommandType.StoredProcedure, parametros);
+            obj.Id = Convert.ToInt64(response);
+            return obj;
         }
     }
 }

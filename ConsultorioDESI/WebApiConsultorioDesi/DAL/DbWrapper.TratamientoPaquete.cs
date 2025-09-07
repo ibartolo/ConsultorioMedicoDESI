@@ -9,7 +9,7 @@ namespace WebApiConsultorioDesi.DAL
 {
     public partial class DbWrapper
     {
-        public List<ObjTratamientoPaquete> GetTratamientoPaqueteByTratamiento(long idTratamiento)
+        public List<ObjRelacionTP> GetTratamientoPaqueteByTratamiento(long idTratamiento)
         {
             var parametros = new List<SqlParameter>()
             {
@@ -20,16 +20,16 @@ namespace WebApiConsultorioDesi.DAL
                 }
             };
 
-            var response = GetObjects<ObjTratamientoPaquete>("GetTratamientoPaqueteByTratamiento", System.Data.CommandType.StoredProcedure, parametros,
-                new Func<System.Data.IDataReader, ObjTratamientoPaquete>((responseString) =>
+            var response = GetObjects<ObjRelacionTP>("GetTratamientoPaqueteByTratamiento", System.Data.CommandType.StoredProcedure, parametros,
+                new Func<System.Data.IDataReader, ObjRelacionTP>((responseString) =>
                 {
-                    var r = FillEntity<ObjTratamientoPaquete>(responseString);
+                    var r = FillEntity<ObjRelacionTP>(responseString);
                     return r;
                 }));
             return response.ToList();
         }
 
-        public List<ObjTratamientoPaquete> GetTratamientoPaqueteByPaquete(long idPaquete)
+        public List<ObjRelacionTP> GetTratamientoPaqueteByPaquete(long idPaquete)
         {
             var parametros = new List<SqlParameter>()
             {
@@ -40,10 +40,10 @@ namespace WebApiConsultorioDesi.DAL
                 }
             };
 
-            var response = GetObjects<ObjTratamientoPaquete>("GetTratamientoPaqueteByPaquete", System.Data.CommandType.StoredProcedure, parametros,
-                new Func<System.Data.IDataReader, ObjTratamientoPaquete>((responseString) =>
+            var response = GetObjects<ObjRelacionTP>("GetTratamientoPaqueteByPaquete", System.Data.CommandType.StoredProcedure, parametros,
+                new Func<System.Data.IDataReader, ObjRelacionTP>((responseString) =>
                 {
-                    var r = FillEntity<ObjTratamientoPaquete>(responseString);
+                    var r = FillEntity<ObjRelacionTP>(responseString);
                     return r;
                 }));
             return response.ToList();
@@ -62,6 +62,22 @@ namespace WebApiConsultorioDesi.DAL
                 {
                     Value = obj.PaqueteId,
                     ParameterName = "@PaqueteId"
+                },
+                new SqlParameter(){
+                    Value = obj.CreatedBy,
+                    ParameterName = "@CreatedBy"    
+                },
+                new SqlParameter(){
+                    Value = obj.CreatedDt,
+                    ParameterName = "@CreatedDt"
+                },
+                new SqlParameter(){
+                    Value = obj.UpdatedBy,
+                    ParameterName = "@UpdatedBy"
+                },
+                new SqlParameter(){
+                    Value = obj.UpdatedDt,
+                    ParameterName = "@UpdatedDt"
                 }
             };
 

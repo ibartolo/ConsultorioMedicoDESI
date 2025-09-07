@@ -5,7 +5,6 @@ $(document).ready(function () {
     ValidarDatos();
     CrearPaquetes();
     CrearTratamientoPaquetes();
-
 });
 
 function ValidarDatos() {
@@ -13,28 +12,32 @@ function ValidarDatos() {
         rules: {
             "TratamientoId": {
                 required: true
+            },
+            "Paquete": {
+                reqired: true,
+                maxlength: 100
+            },
+            "Costo": {
+                required: true,
+                number: true
             }
         },
         messages: {
-            "TratamientoId": "Este campo es obligatorio"
+            "TratamientoId": {
+                required: "debes seleccionar los tratamientos"
+            },
+            "Paquete": {
+                required: "debes ingresar el nombre del paquete",
+                maxlength: "El nombre del paquete no debe pasar de los 100 caracteres"
+            },
+            "Costo": {
+                required: "Debes ingresar el costo del paquete",
+                number: "El costo debe ser un valor numerico"
+            }
         }
     })
 }
-function AgregarTratamiento() {
 
-    $('#btnGuardar').click(function () {
-        let ddl = $('#list');
-        let tratamientoId = ddl.val();
-        let tratamientotxt = ddl.find("option:selected").text();
-
-        valoresSeleccionados.push({ TratamientoId: tratamientoId, Tratamiento: tratamientotxt });
-
-        $('#tblTP').DataTable().row.add({
-            TratamientoId: tratamientoId,
-            Tratamiento: tratamientotxt
-        }).draw();
-    });
-}
 function CrearPaquetes() {
     $('#tblTP').DataTable({
         columns: [
@@ -65,4 +68,32 @@ function AgregarTratamiento() {
         valoresSeleccionados.push(itemToAdd);
         MapingPropertiesDataTable('tblTratamientosTemp', valoresSeleccionados);
     }
+}
+
+function GuardarPaquete() {
+    let request = {
+        Paquete: {
+            NombrePaquete: document.getElementById("NombrePaquete").value,
+            Costo: parseFloat(document.getElementById("Costo").value),
+            Descripcion: document.getElementById("Descripcion").value
+        },
+        Tratamientos: valoresSeleccionados.map(x => ({
+            TratamientoId: parseInt(x.TratamientoId)
+        }))
+    };
+
+    alert("JSON enviado:\n" + JSON.stringify(request, null, 2));
+
+    $.ajax({
+        type: "POST",
+        url: "/Tratamiento/SaveTratamientoPaquete",
+        data: JSON.stringify(request),
+        contentType: "application/json",
+        success: function (response) {
+            console.log(response);
+        },
+        error: function (xhr) {
+            console.log(xhr);
+        }
+    });
 }

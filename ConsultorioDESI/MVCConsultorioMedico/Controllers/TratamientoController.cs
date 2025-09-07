@@ -84,8 +84,9 @@ namespace MVCConsultorioMedico.Controllers
             return Newtonsoft.Json.JsonConvert.SerializeObject(obj);
         }
 
-        public async Task<ActionResult> SaveTratamientoPaquete(ObjTratamientoPaquete obj)
-        {
+        //Como enviamos un JSON es lo que recibimos en el controladores
+        public async Task<ActionResult> SaveTratamientoPaquete(ObjPaqueteRequest obj){ //recibiendo un json paquete request
+
             await httpClientConnection.SaveTratamientoPaquete(obj);
             return Redirect("IndexTP");
         }
