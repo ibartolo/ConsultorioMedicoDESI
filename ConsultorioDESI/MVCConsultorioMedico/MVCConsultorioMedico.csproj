@@ -251,6 +251,7 @@
     <Content Include="Attachment\js\wow.min.js" />
     <Content Include="Attachment\style.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\style.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Comun\Comun.js" />
     <Content Include="Scripts\DatosFiscales\DatosFiscales.js" />
@@ -258,9 +259,11 @@
     <Content Include="Scripts\Home\LogIn.js" />
     <Content Include="Scripts\Paciente\Index.js" />
     <Content Include="Scripts\Paquete\Index.js" />
+    <Content Include="Scripts\Template\Index.js" />
     <Content Include="Scripts\TratamientoPaquete\Index.js" />
     <Content Include="Scripts\Tratamiento\Index.js" />
     <Content Include="Scripts\Usuario\Index.js" />
+    <Content Include="Views\Template\BlueTemplate.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
