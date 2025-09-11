@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro Médico - Azul Claro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="../../Content/style.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <i class="fas fa-hospital"></i>
+            <span>Centro Médico</span>
+        </div>
+        <div class="header-actions">
+            <button class="notification-btn">
+                <i class="fas fa-bell"></i>
+                <span class="notification-badge">3</span>
+            </button>
+            <button class="profile-btn">
+                <i class="fas fa-user"></i>
+            </button>
+            <button class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <aside class="sidebar">
+            <nav>
+                <ul class="sidebar-menu">
+                    <li><a href="#" class="menu-item active"><i class="fas fa-home"></i> <span class="menu-text">Inicio</span></a></li>
+                    <li><a href="#" class="menu-item"><i class="fas fa-stethoscope"></i> <span class="menu-text">Pacientes</span></a></li>
+                    <li><a href="#" class="menu-item"><i class="fas fa-calendar-check"></i> <span class="menu-text">Citas</span></a></li>
+                    <li><a href="#" class="menu-item"><i class="fas fa-user-md"></i> <span class="menu-text">Médicos</span></a></li>
+                    <li><a href="#" class="menu-item"><i class="fas fa-pills"></i> <span class="menu-text">Medicamentos</span></a></li>
+                    <li><a href="#" class="menu-item"><i class="fas fa-chart-bar"></i> <span class="menu-text">Reportes</span></a></li>
+                    <li><a href="#" class="menu-item"><i class="fas fa-cog"></i> <span class="menu-text">Configuración</span></a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <h1 class="page-title">Componentes del Sistema</h1>
+            
+            <section class="component-section">
+                <h2 class="section-title">Botones</h2>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 15px;">
+                    <button class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Pequeño</button>
+                    <button class="btn btn-primary">Mediano</button>
+                    <button class="btn btn-primary btn-lg">Grande</button>
+                </div>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <button class="btn btn-primary">Primario</button>
+                    <button class="btn btn-secondary">Secundario</button>
+                    <button class="btn btn-success">Éxito</button>
+                    <button class="btn btn-error">Error</button>
+                    <button class="btn btn-warning">Advertencia</button>
+                </div>
+            </section>
+            
+            <section class="component-section">
+                <h2 class="section-title">Combobox</h2>
+                <div class="form-group">
+                    <label class="form-label">Seleccione una especialidad:</label>
+                    <select class="form-control">
+                        <option value="">-- Seleccione --</option>
+                        <option value="1">Cardiología</option>
+                        <option value="2">Pediatría</option>
+                        <option value="3">Dermatología</option>
+                        <option value="4">Oftalmología</option>
+                        <option value="5">Ginecología</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Seleccione un médico:</label>
+                    <select class="form-control">
+                        <option value="">-- Seleccione --</option>
+                        <option value="1">Dr. Juan Pérez</option>
+                        <option value="2">Dra. María García</option>
+                        <option value="3">Dr. Carlos López</option>
+                        <option value="4">Dra. Ana Martínez</option>
+                    </select>
+                </div>
+            </section>
+            
+            <section class="component-section">
+                <h2 class="section-title">Tablas</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Paciente</th>
+                                <th>Edad</th>
+                                <th>Médico</th>
+                                <th>Fecha Cita</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1001</td>
+                                <td>Roberto Sánchez</td>
+                                <td>45</td>
+                                <td>Dr. Juan Pérez</td>
+                                <td>15/05/2023</td>
+                                <td><span style="color: var(--success);">Completada</span></td>
+                            </tr>
+                            <tr>
+                                <td>1002</td>
+                                <td>María González</td>
+                                <td>32</td>
+                                <td>Dra. Ana Martínez</td>
+                                <td>16/05/2023</td>
+                                <td><span style="color: var(--warning);">Pendiente</span></td>
+                            </tr>
+                            <tr>
+                                <td>1003</td>
+                                <td>Jorge Rodríguez</td>
+                                <td>61</td>
+                                <td>Dr. Carlos López</td>
+                                <td>17/05/2023</td>
+                                <td><span style="color: var(--warning);">Pendiente</span></td>
+                            </tr>
+                            <tr>
+                                <td>1004</td>
+                                <td>Laura Mendoza</td>
+                                <td>28</td>
+                                <td>Dra. María García</td>
+                                <td>18/05/2023</td>
+                                <td><span style="color: var(--error);">Cancelada</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="copyright">
+            &copy; 2023 Centro Médico - Todos los derechos reservados
+        </div>
+        <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+    <script src="../../Scripts/Template/Index.js"></script>
+</body>
+</html>
