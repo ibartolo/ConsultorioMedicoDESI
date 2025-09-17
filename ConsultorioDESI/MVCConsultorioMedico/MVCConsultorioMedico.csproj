@@ -250,12 +250,14 @@
     <Content Include="Attachment\js\wizard\wizard-active.js" />
     <Content Include="Attachment\js\wow.min.js" />
     <Content Include="Attachment\style.css" />
+    <Content Include="Content\LoginAzul.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Comun\Comun.js" />
     <Content Include="Scripts\DatosFiscales\DatosFiscales.js" />
     <Content Include="Scripts\Empresa\Index.js" />
+    <Content Include="Scripts\Home\LogiAzul.js" />
     <Content Include="Scripts\Home\LogIn.js" />
     <Content Include="Scripts\Paciente\Index.js" />
     <Content Include="Scripts\Paquete\Index.js" />
@@ -330,6 +332,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Paquete\Index.cshtml" />
     <Content Include="Views\Tratamiento\IndexTP.cshtml" />
+    <Content Include="Views\Shared\_TemplateAzul.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
