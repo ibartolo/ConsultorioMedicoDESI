@@ -65,11 +65,11 @@
     }
 
     // Iniciar sesión
-    loginForm.addEventListener('submit', function (e) {
+    document.querySelector('.btn-primary').addEventListener('click', function (e) {
         e.preventDefault();
 
-        const username = this.querySelector('input[type="text"]').value;
-        const password = this.querySelector('input[type="password"]').value;
+        const username = document.getElementById('txtUserName').value;
+        const password = document.getElementById('txtPassword').value;
 
         if (username && password) {
             // Simular inicio de sesión exitoso

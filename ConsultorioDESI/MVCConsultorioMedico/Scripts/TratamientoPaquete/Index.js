@@ -82,13 +82,11 @@ function GuardarPaquete() {
         }))
     };
 
-    alert("JSON enviado:\n" + JSON.stringify(request, null, 2));
-
     $.ajax({
         type: "POST",
         url: "/Tratamiento/SaveTratamientoPaquete",
         data: JSON.stringify(request),
-        contentType: "application/json",
+        contentType: 'application/json',
         success: function (response) {
             console.log(response);
         },

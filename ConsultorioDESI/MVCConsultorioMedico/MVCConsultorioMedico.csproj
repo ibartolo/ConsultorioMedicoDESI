@@ -254,11 +254,14 @@
     <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\AltaTratamiento\Index.js" />
     <Content Include="Scripts\Comun\Comun.js" />
+    <Content Include="Scripts\Consulta\Index.js" />
     <Content Include="Scripts\DatosFiscales\DatosFiscales.js" />
     <Content Include="Scripts\Empresa\Index.js" />
     <Content Include="Scripts\Home\LogiAzul.js" />
     <Content Include="Scripts\Home\LogIn.js" />
+    <Content Include="Scripts\Institucion\Index.js" />
     <Content Include="Scripts\Paciente\Index.js" />
     <Content Include="Scripts\Paquete\Index.js" />
     <Content Include="Scripts\Template\Index.js" />
@@ -270,18 +273,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AltaTratamientoController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ConsultaController.cs" />
     <Compile Include="Controllers\DatosFiscalesController.cs" />
     <Compile Include="Controllers\EmpresaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InstitucionController.cs" />
     <Compile Include="Controllers\PacienteController.cs" />
     <Compile Include="Controllers\PaqueteController.cs" />
     <Compile Include="Controllers\TratamientoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="DAL\HttpClienBase.cs" />
+    <Compile Include="DAL\HttpClientConnection.AltaTratamiento.cs" />
+    <Compile Include="DAL\HttpClientConnection.Consulta.cs" />
     <Compile Include="DAL\HttpClientConnection.cs" />
     <Compile Include="DAL\HttpClientConnection.DatsFiscales.cs" />
     <Compile Include="DAL\HttpClientConnection.Empresa.cs" />
+    <Compile Include="DAL\HttpClientConnection.Institucion.cs" />
     <Compile Include="DAL\HttpClientConnection.Paciente.cs" />
     <Compile Include="DAL\HttpClientConnection.Paquete.cs" />
     <Compile Include="DAL\HttpClientConnection.Tratamiento.cs" />
@@ -293,13 +302,18 @@
     <Compile Include="Helpers\FilterHerlper.cs" />
     <Compile Include="Helpers\SessionHelper.cs" />
     <Compile Include="Models\BaseObject.cs" />
+    <Compile Include="Models\ObjAltaTratamiento.cs" />
+    <Compile Include="Models\ObjConsulta.cs" />
     <Compile Include="Models\ObjDatosFiscales.cs" />
     <Compile Include="Models\ObjEmpresa.cs" />
+    <Compile Include="Models\ObjInstitucion.cs" />
     <Compile Include="Models\ObjPaciente.cs" />
     <Compile Include="Models\ObjPaquete.cs" />
-    <Compile Include="Models\ObjPaqueteRequest.cs" />
+    <Compile Include="Models\relaciones\ObjAltaTratamientoCatalogo.cs" />
+    <Compile Include="Models\Requests\ObjAltaTratamientoRequest.cs" />
+    <Compile Include="Models\Requests\ObjPaqueteRequest.cs" />
     <Compile Include="Models\ObjTratamiento.cs" />
-    <Compile Include="Models\ObjTratamientoPaquete.cs" />
+    <Compile Include="Models\relaciones\ObjTratamientoPaquete.cs" />
     <Compile Include="Models\ObjUsuario.cs" />
     <Compile Include="Models\Seguridad\Token.cs" />
     <Compile Include="Models\Seguridad\TokenCookie.cs" />
@@ -333,6 +347,9 @@
     <Content Include="Views\Paquete\Index.cshtml" />
     <Content Include="Views\Tratamiento\IndexTP.cshtml" />
     <Content Include="Views\Shared\_TemplateAzul.cshtml" />
+    <Content Include="Views\Institucion\Index.cshtml" />
+    <Content Include="Views\Consulta\Index.cshtml" />
+    <Content Include="Views\AltaTratamiento\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
