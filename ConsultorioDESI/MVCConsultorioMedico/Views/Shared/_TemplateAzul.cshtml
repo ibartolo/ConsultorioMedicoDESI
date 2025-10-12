@@ -6,6 +6,9 @@
     <title>@ViewBag.Title</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Attachment/JqueeyDatatable/jquery.dataTables.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
     <header>
@@ -31,20 +34,18 @@
         <aside class="sidebar">
             <nav>
                 <ul class="sidebar-menu">
-                    <li><a href="#" class="menu-item active"><i class="fas fa-home"></i> <span class="menu-text">Inicio</span></a></li>
-                    <li><a href="/Paciente/Index" class="menu-item"><i class="fas fa-stethoscope"></i> <span class="menu-text">Pacientes</span></a></li>
-                    <li><a href="#" class="menu-item"><i class="fas fa-calendar-check"></i> <span class="menu-text">Citas</span></a></li>
-                    <li><a href="#" class="menu-item"><i class="fas fa-user-md"></i> <span class="menu-text">Médicos</span></a></li>
-                    <li><a href="#" class="menu-item"><i class="fas fa-pills"></i> <span class="menu-text">Medicamentos</span></a></li>
-                    <li><a href="#" class="menu-item"><i class="fas fa-chart-bar"></i> <span class="menu-text">Reportes</span></a></li>
-                    @*<li><a href="#" class="menu-item"><i class="fas fa-cog"></i> <span class="menu-text">Configuración</span></a></li>*@
+                    <li><a href="/Home/Index" class="menu-item active"><i class="fas fa-home"></i> <span class="menu-text">Inicio</span></a></li>
+                    <li><a href="/Paciente/Index" class="menu-item"><i class="fas fa-user-injured"></i> <span class="menu-text">Pacientes</span></a></li>
+                    <li><a href="/Empresa/Index" class="menu-item"><i class="fa-etch fa-solid fa-building"></i> <span class="menu-text">Empresas</span></a></li>
+                    <li><a href="/Tratamiento/Index" class="menu-item"><i class="fas fa-pills"></i> <span class="menu-text">Tratamientos</span></a></li>
+                    <li><a href="/Tratamiento/IndexTP" class="menu-item"><i class="fas fa-boxes"></i> <span class="menu-text">Tratamiento Paquete</span></a></li>
+                    <li><a href="/DatosFiscales/Index" class="menu-item"><i class="fa-etch fa-solid fa-file"></i> <span class="menu-text">Datos Fiscales</span></a></li>
                     <li><a href="/Usuario/Index" class="menu-item"><i class="fas fa-user"></i> <span class="menu-text">Usuarios</span></a></li>
-
-
-                    <li><a href="/Usuario/Index">Usuarios</a></li>
-                    @*<li><a href="/Paciente/Index">Pacientes</a></li>*@
-                    <li><a href="/Empresa/Index">Empresa</a></li>
-                    <li><a href="/DatosFiscales/Index">Datos Fiscales</a></li>
+                    <li><a href="/AltaTratamiento/Index" class="menu-item"><i class="fas fa-band-aid"></i> <span class="menu-text">Alta Tratamiento</span></a></li>
+                    <li><a href="/Consulta/Index" class="menu-item"><i class="fas fa-stethoscope"></i> <span class="menu-text">Consultas</span></a></li>
+                    <li><a href="/Institucion/Index" class="menu-item"><i class="fa-etch fa-solid fa-clipboard"></i> <span class="menu-text">Instituciones</span></a></li>
+                    @*<li><a href="#" class="menu-item"><i class="fas fa-cog"></i> <span class="menu-text">Configuración</span></a></li>*@
+                    <i class=></i>
                 </ul>
             </nav>
         </aside>
@@ -66,5 +67,6 @@
         </div>
     </footer>
     <script src="~/Scripts/Template/Index.js"></script>
+    <script src="~/Scripts/Comun/Comun.js"></script>
 </body>
 </html>
