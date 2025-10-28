@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notificación - Centro Médico</title>
+    <style>
+        :root {
+            --primary: #4fc3f7;
+            --primary-dark: #03a9f4;
+            --secondary: #e1f5fe;
+            --accent: #0066cc;
+            --text: #212121;
+            --text-light: #757575;
+            --background: #f8fdff;
+            --surface: #ffffff;
+            --error: #f44336;
+            --success: #4caf50;
+            --warning: #ff9800;
+            --border-radius: 8px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--surface);
+        }
+
+        .email-header {
+            background-color: var(--primary);
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+        }
+
+        .email-logo {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .email-body {
+            padding: 2rem;
+        }
+
+        .email-title {
+            color: var(--primary-dark);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 0.5rem;
+        }
+
+        .email-content {
+            margin-bottom: 2rem;
+        }
+
+        .email-button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            margin: 1rem 0;
+        }
+
+        .email-details {
+            background-color: var(--secondary);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .detail-item {
+            display: flex;
+            margin-bottom: 0.8rem;
+        }
+
+        .detail-label {
+            font-weight: 500;
+            min-width: 120px;
+            color: var(--primary-dark);
+        }
+
+        .email-footer {
+            background-color: #f5f5f5;
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .social-links {
+            margin: 1rem 0;
+        }
+
+        .social-link {
+            color: var(--primary);
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+
+        .footer-links {
+            margin-top: 1rem;
+        }
+
+        .footer-link {
+            color: var(--text-light);
+            text-decoration: none;
+            margin: 0 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 600px) {
+            .email-body {
+                padding: 1.5rem;
+            }
+            
+            .detail-item {
+                flex-direction: column;
+                margin-bottom: 1.2rem;
+            }
+            
+            .detail-label {
+                margin-bottom: 0.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="email-header">
+            <div class="email-logo">
+                <i class="fas fa-hospital" style="color: white;"></i>
+                Centro Médico
+            </div>
+        </div>
+
+        <div class="email-body">
+            <h1 class="email-title">Notificación Importante</h1>
+            
+            <div class="email-content">
+                <p>Hola <strong>Juan Pérez</strong>,</p>
+                
+                <p>Le informamos que su cita médica ha sido programada exitosamente. A continuación encontrará los detalles de su appointmento:</p>
+                
+                <div class="email-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Fecha y Hora:</span>
+                        <span>15 de Mayo de 2023, 10:30 AM</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Médico:</span>
+                        <span>Dr. Carlos López - Cardiología</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Ubicación:</span>
+                        <span>Centro Médico Principal, Consultorio 304</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Dirección:</span>
+                        <span>Av. Principal #123, Ciudad</span>
+                    </div>
+                </div>
+                
+                <p>Por favor, llegue 15 minutos antes de su cita y traiga su identificación y documentos médicos relevantes.</p>
+                
+                <p>Si necesita reprogramar o cancelar su cita, por favor hágalo con al menos 24 horas de anticipación.</p>
+                
+                <a href="#" class="email-button">Confirmar Asistencia</a>
+                <a href="#" class="email-button" style="background-color: var(--text-light);">Reprogramar Cita</a>
+            </div>
+            
+            <p>Si tiene alguna pregunta, no dude en contactarnos:</p>
+            <p>Teléfono: (123) 456-7890<br>Email: info@centromedico.com</p>
+            
+            <p>Atentamente,<br>El equipo de Centro Médico</p>
+        </div>
+
+        <div class="email-footer">
+            <p>&copy; 2023 Centro Médico. Todos los derechos reservados.</p>
+            
+            <div class="social-links">
+                <a href="#" class="social-link">Facebook</a> | 
+                <a href="#" class="social-link">Twitter</a> | 
+                <a href="#" class="social-link">Instagram</a> | 
+                <a href="#" class="social-link">LinkedIn</a>
+            </div>
+            
+            <div class="footer-links">
+                <a href="#" class="footer-link">Política de Privacidad</a>
+                <a href="#" class="footer-link">Términos de Servicio</a>
+                <a href="#" class="footer-link">Contacto</a>
+            </div>
+            
+            <p>Este es un mensaje automático, por favor no responda a este correo.</p>
+        </div>
+    </div>
+</body>
+</html>

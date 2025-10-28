@@ -16,6 +16,11 @@ document.addEventListener('DOMContentLoaded', function () {
         item.addEventListener('click', function () {
             menuItems.forEach(i => i.classList.remove('active'));
             this.classList.add('active');
+
+            // En móviles, cerrar el menú después de seleccionar una opción
+            if (window.innerWidth <= 768) {
+                sidebar.classList.remove('active');
+            }
         });
     });
 });

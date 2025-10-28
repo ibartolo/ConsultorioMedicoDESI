@@ -250,6 +250,9 @@
     <Content Include="Attachment\js\wizard\wizard-active.js" />
     <Content Include="Attachment\js\wow.min.js" />
     <Content Include="Attachment\style.css" />
+    <Content Include="Attachment\templatesIA\email.html" />
+    <Content Include="Attachment\templatesIA\login.html" />
+    <Content Include="Attachment\templatesIA\principal.html" />
     <Content Include="Content\LoginAzul.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
@@ -268,7 +271,6 @@
     <Content Include="Scripts\TratamientoPaquete\Index.js" />
     <Content Include="Scripts\Tratamiento\Index.js" />
     <Content Include="Scripts\Usuario\Index.js" />
-    <Content Include="Views\Template\BlueTemplate.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -301,6 +303,7 @@
     </Compile>
     <Compile Include="Helpers\FilterHerlper.cs" />
     <Compile Include="Helpers\SessionHelper.cs" />
+    <Compile Include="Helpers\StaticFileHelper.cs" />
     <Compile Include="Models\BaseObject.cs" />
     <Compile Include="Models\ObjAltaTratamiento.cs" />
     <Compile Include="Models\ObjConsulta.cs" />

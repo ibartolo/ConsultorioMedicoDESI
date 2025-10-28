@@ -64,25 +64,6 @@
         }, 5000);
     }
 
-    // Iniciar sesión
-    document.querySelector('.btn-primary').addEventListener('click', function (e) {
-        e.preventDefault();
-
-        const username = document.getElementById('txtUserName').value;
-        const password = document.getElementById('txtPassword').value;
-
-        if (username && password) {
-            // Simular inicio de sesión exitoso
-            authPage.classList.add('hidden');
-            dashboard.classList.remove('hidden');
-
-            // Mostrar notificación de bienvenida
-            showNotification('success', '¡Bienvenido!', 'Has iniciado sesión correctamente.');
-        } else {
-            showNotification('error', 'Error', 'Por favor, completa todos los campos.');
-        }
-    });
-
     // Cerrar sesión
     logoutBtn.addEventListener('click', function () {
         authPage.classList.remove('hidden');
