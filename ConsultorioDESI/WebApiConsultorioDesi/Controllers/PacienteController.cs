@@ -47,5 +47,13 @@ namespace WebApiConsultorioDesi.Controllers
             var response = dbwrapper.SaveOrUpdatePaciente(obj);
             return response;
         }
+
+        [HttpGet]
+        [Route("IndicadoresData")]
+        public long GetPatientsCountByDateRange(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            var response = dbwrapper.CountPacientes(FechaInicial, FechaFinal);
+            return response;
+        }
     }
 }

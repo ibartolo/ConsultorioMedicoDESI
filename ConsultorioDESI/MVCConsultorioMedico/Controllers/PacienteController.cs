@@ -19,8 +19,8 @@ namespace MVCConsultorioMedico.Controllers
         {
             ObjPaciente obj = null;
 
-            if(id != 0)
-            { 
+            if (id != 0)
+            {
                 obj = await httpClientConnection.GetPacienteById(id);
             }
             else
@@ -53,6 +53,12 @@ namespace MVCConsultorioMedico.Controllers
         public async Task<string> GetAllPacientes()
         {
             var response = await httpClientConnection.GetAllPaciente();
+            return Newtonsoft.Json.JsonConvert.SerializeObject(response);
+        }
+
+        public async Task<string> GetPacienteById(long id)
+        {
+            var response = await httpClientConnection.GetPacienteById(id);
             return Newtonsoft.Json.JsonConvert.SerializeObject(response);
         }
     }

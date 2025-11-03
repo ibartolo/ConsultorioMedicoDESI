@@ -38,5 +38,13 @@ namespace WebApiConsultorioDesi.Controllers
             var response = _db.SaveOrUpdateConsulta(obj);
             return response;
         }
+
+        [HttpGet]
+        [Route("IndicadoresData")]
+        public long GetConsultasCountByDateRange(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            var response = _db.GetAppointmentCountByDateRange(FechaInicial, FechaFinal);
+            return response;
+        }
     }
 }

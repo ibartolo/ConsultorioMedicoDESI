@@ -39,5 +39,15 @@ namespace MVCConsultorioMedico.DAL
                 }));
             return response;
         }
+
+        public async Task<long> GetAppointmentCountByDateRange(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            var response = await RequestAsync($"api/Consulta/IndicadoresData?FechaInicial={FechaInicial.ToString("o")}&FechaFinal={FechaFinal.ToString("o")}", System.Net.Http.HttpMethod.Get, null,
+                new Func<string, string>((responseString) =>
+                {
+                    return responseString;
+                }));
+            return long.Parse(response);
+        }
     }
 }

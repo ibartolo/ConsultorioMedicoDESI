@@ -14,10 +14,10 @@
                     <i class="fas fa-user-plus"></i>
                 </div>
             </div>
-            <div class="stat-value">42</div>
+            <div class="stat-value">@ViewBag.TotalPacientes</div>
             <div class="stat-title">Este mes</div>
             <div class="stat-change positive">
-                <i class="fas fa-arrow-up"></i> 12% vs mes anterior
+                <i class="fas fa-arrow-up"></i> @ViewBag.PorcentajePacientes% vs mes anterior <!--El valor no se representa-->
             </div>
         </div>
 
@@ -28,10 +28,10 @@
                     <i class="fas fa-calendar-check"></i>
                 </div>
             </div>
-            <div class="stat-value">156</div>
+            <div class="stat-value">@ViewBag.TotalCitas</div> 
             <div class="stat-title">Este mes</div>
             <div class="stat-change positive">
-                <i class="fas fa-arrow-up"></i> 8% vs mes anterior
+                <i class="fas fa-arrow-up"></i> 0% vs mes anterior <!--Ingresar el porcentaje de las citas del mes anterior-->
             </div>
         </div>
 
