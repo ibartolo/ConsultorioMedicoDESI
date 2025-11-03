@@ -26,6 +26,15 @@
             {
                 title: "Fecha Recepción",
                 data: "FechaRecepcion"
+            },
+            {
+                title: "",
+                data: null,
+                render: function (data, type, row) {
+                    return '<button class="btn btn-success notika-btn-success waves-effect" onclick="Actualizar(' + row.Id + ')">Actualizar</button>';
+                },
+                orderable: false,
+                searchable: false
             }
         ]
 
@@ -135,4 +144,50 @@ function ValidarDatos() {
             }
         }
     })
+}
+
+function Actualizar(Id) {
+
+    $.ajax({
+        type: 'GET',
+        url: "/Paciente/GetPacienteById/" + Id,
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+            var ObjPaciente = {
+                Id: parseInt(data.Id),
+                Nombre: $('#Nombre').val(),
+                ApellidoP: $('#ApellidoP').val(),
+                ApellidoM: $('#ApellidoM').val(),
+                Genero: $('#Genero').val(),
+                FechaNacimiento: $('#FechaNacimiento').val(),
+                Edad: $('#Edad').val(),
+                Telefono: $('#Telefono').val(),
+                Email: $('#Email').val(),
+                FechaRecepcion: data.FechaRecepcion,
+                Comentario: $('#Comentario').val(),
+                CreatedBy: data.CreatedBy,
+                CreatedDt: data.CreatedDt
+            }
+
+            alert(JSON.stringify(ObjPaciente, null, 2));
+
+            //Ingresar un ajax para enviar el json
+            $.ajax({
+                type: "POST",
+                url: "/Paciente/SaveOrUpdatePaciente",
+                contentType: "application/json",
+                data: JSON.stringify(ObjPaciente),
+                success: function (response) {
+                    console.log(response);
+                },
+                error: function (xhr) {
+                    console.log(xhr);
+                }
+            })
+        },
+        error: function (xhr) {
+            console.log(xhr);
+        }
+    });
 }

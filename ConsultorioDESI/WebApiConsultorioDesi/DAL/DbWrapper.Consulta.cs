@@ -101,5 +101,25 @@ namespace WebApiConsultorioDesi.DAL
             obj.Id = Convert.ToInt64(response);
             return obj;
         }
+
+        public long GetAppointmentCountByDateRange(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            var parametros = new List<SqlParameter>()
+            {
+                new SqlParameter()
+                {
+                    ParameterName = "@FechaInicial",
+                    Value = FechaInicial
+                },
+                new SqlParameter()
+                {
+                    ParameterName = "@FechaFinal",
+                    Value = FechaFinal
+                }
+            };
+
+            var response = ExecuteScalar("GetAppointmentCountByDateRange", System.Data.CommandType.StoredProcedure, parametros);
+            return Convert.ToInt64(response);
+        }
     }
 }

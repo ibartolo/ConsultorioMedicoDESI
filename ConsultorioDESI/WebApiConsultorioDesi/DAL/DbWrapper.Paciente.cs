@@ -132,5 +132,24 @@ namespace WebApiConsultorioDesi.DAL
 
             return obj;
         }
+
+        public long CountPacientes(DateTime FechaInicial, DateTime FechaFinal)
+        {
+            var parametros = new List<SqlParameter>()
+            {
+                new SqlParameter()
+                {
+                    ParameterName = "@FechaInicial",
+                    Value = FechaInicial
+                },
+                new SqlParameter()
+                {
+                    ParameterName = "@FechaFinal",
+                    Value = FechaFinal
+                }
+            };
+            var response = ExecuteScalar("GetPatientsCountByDateRange", System.Data.CommandType.StoredProcedure, parametros);
+            return Convert.ToInt64(response);
+        }
     }
 }
