@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace WebApiConsultorioDesi.Models
+namespace EntidadesConsultorioMedico
 {
-	public class ObjEmpresa : BaseObject
+    public class ObjEmpresa : BaseObject
     {
         public string Nombre { get; set; }
         public string Descripcion { get; set; }

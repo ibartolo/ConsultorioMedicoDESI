@@ -1,11 +1,12 @@
-﻿using System;
+﻿using EntidadesConsultorioMedico;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Web;
-using WebApiConsultorioDesi.Models;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace WebApiConsultorioDesi.DAL
+namespace AccesoDatosConsultorioMedico
 {
     public partial class DbWrapper
     {
@@ -24,9 +25,9 @@ namespace WebApiConsultorioDesi.DAL
         public ObjEmpresa GetEmpresaById(long id)
         {
             var parametros = new List<SqlParameter>()
-            { 
+            {
                 new SqlParameter()
-                { 
+                {
                     Value = id,
                     ParameterName = "@Id"
                 }
