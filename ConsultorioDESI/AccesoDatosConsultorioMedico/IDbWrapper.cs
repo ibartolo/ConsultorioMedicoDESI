@@ -12,5 +12,10 @@ namespace AccesoDatosConsultorioMedico
         List<ObjEmpresa> GetAllEmpresa();
         ObjEmpresa GetEmpresaById(long id);
         ObjEmpresa SaveOrUpdateEmpresa(ObjEmpresa obj);
+
+        List<ObjPaciente> GetAllPaciente();
+
+        ObjPaciente GetPacienteById(long id);
+        ObjPaciente SaveOrUpdatePaciente(ObjPaciente obj);
     }
 }

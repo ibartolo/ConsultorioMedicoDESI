@@ -45,6 +45,7 @@
     <Compile Include="BaseDbWrapper.cs" />
     <Compile Include="DbWrapper.cs" />
     <Compile Include="DbWrapper.Empresa.cs" />
+    <Compile Include="DbWrapper.Paciente.cs" />
     <Compile Include="IDbWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
