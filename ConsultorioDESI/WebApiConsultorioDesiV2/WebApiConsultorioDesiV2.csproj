@@ -10,4 +10,14 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Catalogs.Application\Catalogs.Application.csproj" />
+    <ProjectReference Include="..\Catalogs.Domain\Catalogs.Domain.csproj" />
+    <ProjectReference Include="..\Catalogs.Messages\Catalogs.Messages.csproj" />
+    <ProjectReference Include="..\Common.Domain\Common.Domain.csproj" />
+    <ProjectReference Include="..\Institute.Domain\Institute.Domain.csproj" />
+    <ProjectReference Include="..\Institute.Message\Institute.Message.csproj" />
+    <ProjectReference Include="..\Institutions.Application\Institutions.Application.csproj" />
+  </ItemGroup>
+
 </Project>
