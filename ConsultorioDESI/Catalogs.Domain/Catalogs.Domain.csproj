@@ -7,8 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Catalogs.Domain\Catalogs.Domain.csproj" />
-    <ProjectReference Include="..\Catalogs.Proxy\Catalogs.Proxy.csproj" />
+    <ProjectReference Include="..\Common.Domain\Common.Domain.csproj" />
   </ItemGroup>
 
 </Project>

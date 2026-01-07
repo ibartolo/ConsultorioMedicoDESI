@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Catalogs.Domain;
+using Common.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +10,8 @@ namespace Catalogs.Application
 {
     public interface ICatalogsApp
     {
-        void GetAllEmpresa();
+        IEnumerable<CatalogsObj> GetAllCompanies(out OperationResult result);
+        CatalogsObj GetCompanyById(long id, out OperationResult result);
+        //CatalogsObj SaveOrUpdateCompany(CatalogsObj obj);
     }
 }
