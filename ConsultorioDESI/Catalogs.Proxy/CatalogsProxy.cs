@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SqlProxy;
+using Microsoft.Data.SqlClient;
 
 namespace Catalogs.Proxy
 {
@@ -18,7 +19,16 @@ namespace Catalogs.Proxy
 
         public DataTable GetCompanyById(long id)
         {
-            DataTable result = GetObject($"GetEmpresaById/{id}", CommandType.StoredProcedure);
+            var parametro = new List<SqlParameter>()
+            {
+                new SqlParameter()
+                {
+                    ParameterName = "@Id",
+                    Value = id
+                }
+            };
+
+            DataTable result = GetObject("GetEmpresaById", CommandType.StoredProcedure, parametro);
             return result;
         }
     }

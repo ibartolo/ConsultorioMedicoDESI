@@ -29,7 +29,7 @@ namespace WebApiConsultorioDesiV2.Controllers
             return response;
         }
 
-        [HttpGet("GetInstitutionsById")]
+        [HttpGet("GetInstitutionById")]
         public InstituteObjResponse GetInstitutionsById(long id)
         {
             var response = new InstituteObjResponse();
