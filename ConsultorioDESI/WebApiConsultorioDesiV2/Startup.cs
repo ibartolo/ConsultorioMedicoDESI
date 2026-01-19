@@ -1,8 +1,21 @@
 ﻿using Microsoft.OpenApi.Models;
 using Catalogs.Application;
 using Institutions.Application;
+using Consultation.Application;
+using Patient.Application;
+using User.Application;
+using FiscalData.Application;
+using Treatment.Application;
+using Package.Application;
 using Catalogs.Proxy;
 using Institute.Proxy;
+using Consultation.Proxy;
+using Patient.Proxy;
+using User.Proxy;
+using FiscalData.Proxy;
+using Treatment.Proxy;
+using Package.Proxy;
+
 namespace WebApiConsultorioDesiV2
 {
     public class Startup
@@ -17,7 +30,18 @@ namespace WebApiConsultorioDesiV2
             services.AddScoped<ICatalogsApp, CatalogsApp>();
             services.AddScoped<IInstituteProxy, InstituteProxy>();
             services.AddScoped<IInstituteApp, InstituteApp>();
-
+            services.AddScoped<IConsultationProxy, ConsultationProxy>();
+            services.AddScoped<IConsultationApp, ConsultationApp>();
+            services.AddScoped<IPatientProxy, PatientProxy>();
+            services.AddScoped<IPatientApp, PatientApp>();
+            services.AddScoped<IUserProxy, UserProxy>();
+            services.AddScoped<IUserApp, UserApp>();
+            services.AddScoped<IFiscalDataProxy, FiscalDataProxy>();
+            services.AddScoped<IFiscalDataApp, FiscalDataApp>();
+            services.AddScoped<ITreatmentProxy, TreatmentProxy>();
+            services.AddScoped<ITreatmentApp, TreatmentApp>();
+            services.AddScoped<IPackageProxy, PackageProxy>();
+            services.AddScoped<IPackageApp, PackageApp>();
             services.AddControllers();
 
             // Swagger/OpenAPI

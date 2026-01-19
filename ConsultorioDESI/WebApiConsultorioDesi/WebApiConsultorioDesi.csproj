@@ -201,18 +201,11 @@
     <Compile Include="Models\Consultas\ObjAltaTratamientoShow.cs" />
     <Compile Include="Models\Consultas\ObjConsultaShow.cs" />
     <Compile Include="Models\ObjAltaTratamiento.cs" />
-    <Compile Include="Models\ObjConsulta.cs" />
-    <Compile Include="Models\ObjDatosFiscales.cs" />
-    <Compile Include="Models\ObjInstitucion.cs" />
-    <Compile Include="Models\ObjPaquete.cs" />
     <Compile Include="Models\Relaciones\ObjAltaTratamientoCatalogo.cs" />
     <Compile Include="Models\Requests\ObjAltaTratamientoRequest.cs" />
     <Compile Include="Models\Requests\ObjPaqueteRequest.cs" />
     <Compile Include="Models\ObjRelacionTP.cs" />
-    <Compile Include="Models\ObjTratamiento.cs" />
     <Compile Include="Models\Relaciones\ObjTratamientoPaquete.cs" />
-    <Compile Include="Models\ObjUsuario.cs" />
-    <Compile Include="Models\ObjPaciente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -15,9 +15,28 @@
     <ProjectReference Include="..\Catalogs.Domain\Catalogs.Domain.csproj" />
     <ProjectReference Include="..\Catalogs.Messages\Catalogs.Messages.csproj" />
     <ProjectReference Include="..\Common.Domain\Common.Domain.csproj" />
+    <ProjectReference Include="..\Consultation.Application\Consultation.Application.csproj" />
+    <ProjectReference Include="..\Consultation.Domain\Consultation.Domain.csproj" />
+    <ProjectReference Include="..\Consultation.Messages\Consultation.Messages.csproj" />
+    <ProjectReference Include="..\FiscalData.Application\FiscalData.Application.csproj" />
+    <ProjectReference Include="..\FiscalData.Domain\FiscalData.Domain.csproj" />
+    <ProjectReference Include="..\FiscalData.Messages\FiscalData.Messages.csproj" />
     <ProjectReference Include="..\Institute.Domain\Institute.Domain.csproj" />
     <ProjectReference Include="..\Institute.Message\Institute.Message.csproj" />
     <ProjectReference Include="..\Institutions.Application\Institutions.Application.csproj" />
+    <ProjectReference Include="..\Package.Application\Package.Application.csproj" />
+    <ProjectReference Include="..\Package.Domain\Package.Domain.csproj" />
+    <ProjectReference Include="..\Package.Messages\Package.Messages.csproj" />
+    <ProjectReference Include="..\Patient.Application\Patient.Application.csproj" />
+    <ProjectReference Include="..\Patient.Messages\Patient.Messages.csproj" />
+    <ProjectReference Include="..\Tratamiento.Messages\Treatment.Messages.csproj" />
+    <ProjectReference Include="..\Treatment.Application\Treatment.Application.csproj" />
+    <ProjectReference Include="..\Treatment.Domain\Treatment.Domain.csproj" />
+    <ProjectReference Include="..\Treatment.Proxy\Treatment.Proxy.csproj" />
+    <ProjectReference Include="..\User.Application\User.Application.csproj" />
+    <ProjectReference Include="..\User.Domain\User.Domain.csproj" />
+    <ProjectReference Include="..\User.Messages\User.Messages.csproj" />
+    <ProjectReference Include="..\User.Proxy\User.Proxy.csproj" />
   </ItemGroup>
 
 </Project>
