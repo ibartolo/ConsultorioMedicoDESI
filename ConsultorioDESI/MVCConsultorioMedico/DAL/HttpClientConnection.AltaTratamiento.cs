@@ -1,5 +1,5 @@
-﻿using MVCConsultorioMedico.Models;
-using MVCConsultorioMedico.Models.Requests;
+﻿using EntidadesConsultorioMedico;
+using EntidadesConsultorioMedico.Requests;
 using System;
 using System.Collections.Generic;
 using System.Linq;

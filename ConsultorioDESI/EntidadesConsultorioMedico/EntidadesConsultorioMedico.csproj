@@ -42,9 +42,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseObject.cs" />
+    <Compile Include="Consultas\ObjAltaTratamientoShow.cs" />
+    <Compile Include="Consultas\ObjConsultaShow.cs" />
+    <Compile Include="ObjAltaTratamiento.cs" />
+    <Compile Include="ObjConsulta.cs" />
+    <Compile Include="ObjDatosFiscales.cs" />
     <Compile Include="ObjEmpresa.cs" />
+    <Compile Include="ObjInstitucion.cs" />
     <Compile Include="ObjPaciente.cs" />
+    <Compile Include="ObjPaquete.cs" />
+    <Compile Include="ObjRelacionTP.cs" />
+    <Compile Include="ObjTratamiento.cs" />
+    <Compile Include="ObjUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Relaciones\ObjAltaTratamientoCatalogo.cs" />
+    <Compile Include="Relaciones\ObjTratamientoPaquete.cs" />
+    <Compile Include="Requests\ObjAltaTratamientoRequest.cs" />
+    <Compile Include="Requests\ObjPaqueteRequest.cs" />
+    <Compile Include="Seguridad\Token.cs" />
+    <Compile Include="Seguridad\TokenCookie.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

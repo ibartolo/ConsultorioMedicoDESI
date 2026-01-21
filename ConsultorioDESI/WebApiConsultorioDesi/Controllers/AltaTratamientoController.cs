@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
-using WebApiConsultorioDesi.DAL;
-using WebApiConsultorioDesi.Models;
-using WebApiConsultorioDesi.Models.Consultas;
-using WebApiConsultorioDesi.Models.Relaciones;
-using WebApiConsultorioDesi.Models.Requests;
+using AccesoDatosConsultorioMedico;
+using EntidadesConsultorioMedico;
+using EntidadesConsultorioMedico.Consultas;
+using EntidadesConsultorioMedico.Relaciones;
+using EntidadesConsultorioMedico.Requests;
 
 namespace WebApiConsultorioDesi.Controllers
 {

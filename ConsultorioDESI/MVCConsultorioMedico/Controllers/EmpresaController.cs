@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using MVCConsultorioMedico.Models;
+using EntidadesConsultorioMedico;
 using MVCConsultorioMedico.DAL;
 using static MVCConsultorioMedico.Helpers.FilterHerlper;
 

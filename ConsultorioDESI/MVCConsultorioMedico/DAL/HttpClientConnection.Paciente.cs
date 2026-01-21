@@ -1,4 +1,4 @@
-﻿using MVCConsultorioMedico.Models;
+﻿using EntidadesConsultorioMedico;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

@@ -183,29 +183,9 @@
     <Compile Include="Controllers\TratamientoController.cs" />
     <Compile Include="Controllers\TratamientoPaqueteController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
-    <Compile Include="DAL\BaseDbWrapper.cs" />
-    <Compile Include="DAL\DbWrapper.AltaTratamiento.cs" />
-    <Compile Include="DAL\DbWrapper.Consulta.cs" />
-    <Compile Include="DAL\DbWrapper.cs" />
-    <Compile Include="DAL\DbWrapper.DatosFiscales.cs" />
-    <Compile Include="DAL\DbWrapper.Institucion.cs" />
-    <Compile Include="DAL\DbWrapper.Paciente.cs" />
-    <Compile Include="DAL\DbWrapper.Paquete.cs" />
-    <Compile Include="DAL\DbWrapper.Tratamiento.cs" />
-    <Compile Include="DAL\DbWrapper.TratamientoPaquete.cs" />
-    <Compile Include="DAL\DbWrapper.Usuario.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\BaseObject.cs" />
-    <Compile Include="Models\Consultas\ObjAltaTratamientoShow.cs" />
-    <Compile Include="Models\Consultas\ObjConsultaShow.cs" />
-    <Compile Include="Models\ObjAltaTratamiento.cs" />
-    <Compile Include="Models\Relaciones\ObjAltaTratamientoCatalogo.cs" />
-    <Compile Include="Models\Requests\ObjAltaTratamientoRequest.cs" />
-    <Compile Include="Models\Requests\ObjPaqueteRequest.cs" />
-    <Compile Include="Models\ObjRelacionTP.cs" />
-    <Compile Include="Models\Relaciones\ObjTratamientoPaquete.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -223,7 +203,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="DAL\" />
     <Folder Include="Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AccesoDatosConsultorioMedico\AccesoDatosConsultorioMedico.csproj">

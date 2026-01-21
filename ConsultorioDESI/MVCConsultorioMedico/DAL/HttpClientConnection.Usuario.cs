@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
-using MVCConsultorioMedico.Models;
+using EntidadesConsultorioMedico;
 using Newtonsoft.Json;
 
 namespace MVCConsultorioMedico.DAL

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using MVCConsultorioMedico.DAL;
-using MVCConsultorioMedico.Models;
+using EntidadesConsultorioMedico;
 using static MVCConsultorioMedico.Helpers.FilterHerlper;
 
 namespace MVCConsultorioMedico.Controllers

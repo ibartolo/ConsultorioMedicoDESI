@@ -8,7 +8,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
-using WebApiConsultorioDesi.DAL;
+using AccesoDatosConsultorioMedico;
 
 //namespace WebApiConsultorioDesi.App_Start
 [assembly: OwinStartup(typeof(WebApiConsultorioDesi.App_Start.Startup))]
