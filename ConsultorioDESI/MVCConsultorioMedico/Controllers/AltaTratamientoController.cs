@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Threading.Tasks;
-using MVCConsultorioMedico.Models;
-using MVCConsultorioMedico.Models.Requests;
-using MVCConsultorioMedico.Models.relaciones;
+using EntidadesConsultorioMedico;
+using EntidadesConsultorioMedico.Requests;
+using EntidadesConsultorioMedico.Relaciones;
 using static MVCConsultorioMedico.Helpers.FilterHerlper;
 
 namespace MVCConsultorioMedico.Controllers

@@ -1,4 +1,4 @@
-﻿using MVCConsultorioMedico.Models;
+﻿using EntidadesConsultorioMedico;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,4 +1,4 @@
-﻿using MVCConsultorioMedico.Models;
+﻿using EntidadesConsultorioMedico;
 using MVCConsultorioMedico.DAL;
 using System;
 using System.Collections.Generic;

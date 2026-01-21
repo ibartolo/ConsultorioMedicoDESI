@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
-using WebApiConsultorioDesi.Models;
-using WebApiConsultorioDesi.Models.Consultas;
+using EntidadesConsultorioMedico;
+using EntidadesConsultorioMedico.Consultas;
 
-namespace WebApiConsultorioDesi.DAL
+namespace AccesoDatosConsultorioMedico
 {
     public partial class DbWrapper
     {

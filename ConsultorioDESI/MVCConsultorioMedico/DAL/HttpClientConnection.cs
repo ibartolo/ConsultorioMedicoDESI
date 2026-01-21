@@ -1,6 +1,6 @@
 ﻿using MVCConsultorioMedico.Helpers;
-using MVCConsultorioMedico.Models;
-using MVCConsultorioMedico.Models.Seguridad;
+using EntidadesConsultorioMedico;
+using EntidadesConsultorioMedico.Seguridad;
 using System;
 using System.Collections.Generic;
 using System.Linq;

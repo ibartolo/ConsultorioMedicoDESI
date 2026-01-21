@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace WebApiConsultorioDesi.Models.Relaciones
+namespace EntidadesConsultorioMedico.Relaciones
 {
     public class ObjAltaTratamientoCatalogo : BaseObject
     {

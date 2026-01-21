@@ -1,6 +1,6 @@
 ﻿using MVCConsultorioMedico.DAL;
-using MVCConsultorioMedico.Models;
-using MVCConsultorioMedico.Models.Seguridad;
+using EntidadesConsultorioMedico;
+using EntidadesConsultorioMedico.Seguridad;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -36,8 +36,8 @@ namespace MVCConsultorioMedico.Controllers
             var TotalPacientesAnterior = await httpClientConnection.GetPatientsCountByDateRange(fechaInicialAnterior, fechaFinalAnterior);
             var TotalCitasAnterior = await httpClientConnection.GetAppointmentCountByDateRange(fechaInicialAnterior, fechaFinalAnterior);
 
-            var resultadoPaciente = ((TotalPacientes - TotalPacientesAnterior) * 100) / TotalPacientes;
-            ViewBag.PorcentajePacientes = resultadoPaciente;
+            //var resultadoPaciente = ((TotalPacientes - TotalPacientesAnterior) * 100) / TotalPacientes;
+            //ViewBag.PorcentajePacientes = resultadoPaciente;
 
             //var resultadoCitas = ((TotalCitas - TotalCitasAnterior) * 100) / TotalCitas;
             //ViewBag.PorcentajeCitas = resultadoCitas;

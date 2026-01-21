@@ -5,8 +5,8 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Results;
-using WebApiConsultorioDesi.DAL;
-using WebApiConsultorioDesi.Models;
+using AccesoDatosConsultorioMedico;
+using EntidadesConsultorioMedico;
 
 namespace WebApiConsultorioDesi.Controllers
 {

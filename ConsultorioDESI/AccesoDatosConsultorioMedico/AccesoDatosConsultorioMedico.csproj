@@ -43,9 +43,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseDbWrapper.cs" />
+    <Compile Include="DbWrapper.AltaTratamiento.cs" />
+    <Compile Include="DbWrapper.Consulta.cs" />
     <Compile Include="DbWrapper.cs" />
+    <Compile Include="DbWrapper.DatosFiscales.cs" />
     <Compile Include="DbWrapper.Empresa.cs" />
+    <Compile Include="DbWrapper.Institucion.cs" />
     <Compile Include="DbWrapper.Paciente.cs" />
+    <Compile Include="DbWrapper.Paquete.cs" />
+    <Compile Include="DbWrapper.Tratamiento.cs" />
+    <Compile Include="DbWrapper.TratamientoPaquete.cs" />
+    <Compile Include="DbWrapper.Usuario.cs" />
     <Compile Include="IDbWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

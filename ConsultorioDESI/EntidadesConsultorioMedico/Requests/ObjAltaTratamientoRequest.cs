@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using WebApiConsultorioDesi.Models.Relaciones;
+using EntidadesConsultorioMedico.Relaciones;
 
-namespace WebApiConsultorioDesi.Models.Requests
+namespace EntidadesConsultorioMedico.Requests
 {
     public class ObjAltaTratamientoRequest : BaseObject
     {

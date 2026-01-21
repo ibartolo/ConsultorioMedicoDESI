@@ -364,6 +364,16 @@
     <Folder Include="App_Data\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AccesoDatosConsultorioMedico\AccesoDatosConsultorioMedico.csproj">
+      <Project>{9153dfee-f928-4299-aff5-2e9745b592c2}</Project>
+      <Name>AccesoDatosConsultorioMedico</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntidadesConsultorioMedico\EntidadesConsultorioMedico.csproj">
+      <Project>{f299f061-66a9-4b73-95d1-dbdf13939231}</Project>
+      <Name>EntidadesConsultorioMedico</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
