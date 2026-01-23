@@ -45,6 +45,11 @@ namespace MVCConsultorioMedico.Controllers
             return View(obj);
         }
 
+        public ActionResult Calendario()
+        {
+            return View();
+        }
+
         public async Task<string> GetAllConsulta()
         {
             var response = await httpClientConnection.GetAllConsulta();
