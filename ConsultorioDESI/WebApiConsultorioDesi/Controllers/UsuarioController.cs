@@ -5,8 +5,8 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Results;
-using WebApiConsultorioDesi.DAL;
-using WebApiConsultorioDesi.Models;
+using AccesoDatosConsultorioMedico;
+using EntidadesConsultorioMedico;
 
 namespace WebApiConsultorioDesi.Controllers
 {
@@ -15,12 +15,19 @@ namespace WebApiConsultorioDesi.Controllers
 
     public class UsuarioController : ApiController
     {
+        public DbWrapper dbwrapper { get; set; }
+
+        public UsuarioController()
+        {
+            dbwrapper = new DbWrapper();
+        }
+
         //obtener la lista de todos los usuarios
         [HttpGet]
         [Route("List")]
         public List<ObjUsuario> GetAllUsuario()
         {
-            var response = new DbWrapper().GetAllUsuario();
+            var response = dbwrapper.GetAllUsuario();
             return response;
         }
 
@@ -29,32 +36,26 @@ namespace WebApiConsultorioDesi.Controllers
         [Route("{id:long}")]
         public ObjUsuario GetUsuarioById(long id)
         {
-            var response = new DbWrapper().GetUsuarioById(id);
+            var response = dbwrapper.GetUsuarioById(id);
             return response;
         }
 
         //obtener usuario por username y password
         [HttpPost]
         [Route("Login")]
-        public IHttpActionResult GetUsuarioByUserNameAndPass([FromBody] ObjUsuario usuario)
+        public IHttpActionResult GetUsuarioByUserNameAndPass(ObjUsuario usuario)
         {
-            var response = new DbWrapper().GetUsuarioByUserNameAndPass(usuario.UserName, usuario.Pass);
+            var response = dbwrapper.GetUsuarioByUserNameAndPass(usuario.UserName, usuario.Pass);
             return Ok(response);
         }
 
         //Actualizar y guardar
         [HttpPost]
-        [Route("saveorupdate")]
-        public IHttpActionResult SaveOrUpdateUsuario(long id, string username, string pass, string email, string nombre, string apellido, string createdby, DateTime createddt, string updatedby, DateTime updateddt)
+        [Route("")]
+        public ObjUsuario SaveOrUpdateUsuario(ObjUsuario obj)
         {
-            try
-            {
-                new DbWrapper().SaveOrUpdateUsuario(id, username, pass, email, nombre, apellido, createdby, createddt, updatedby, updateddt);
-                return Ok("Se ha registrado los datos con exito");
-            }catch(Exception ex)
-            {
-                return InternalServerError(ex);
-            }
+            var response = dbwrapper.SaveOrUpdateUsuario(obj);
+            return response;
         }
 
         //Borrar usuario
@@ -62,7 +63,7 @@ namespace WebApiConsultorioDesi.Controllers
         [Route("delete/{id:long}")]
         public IHttpActionResult DeleteUsuario(long id)
         {
-            new DbWrapper().DeleteUsuario(id);
+            dbwrapper.DeleteUsuario(id);
             return Ok("El registro se borro con exito");
         }
     }

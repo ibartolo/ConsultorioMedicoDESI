@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace MVCConsultorioMedico.Models.Seguridad
+{
+	public class TokenCookie
+	{
+        public Token Token { get; set; }
+        public long UserID { get; set; }
+        public string UserName { get; set; }
+    }
+}

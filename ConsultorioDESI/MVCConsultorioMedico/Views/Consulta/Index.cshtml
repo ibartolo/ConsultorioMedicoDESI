@@ -1,0 +1,56 @@
+﻿@model EntidadesConsultorioMedico.ObjConsulta
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_TemplateAzul.cshtml";
+}
+
+<h2>Consulta</h2>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+
+@using (Html.BeginForm("SaveOrUpdateConsulta", "Consulta", FormMethod.Post, new { @id = "frmControl", @name = "frmConsulta" }))
+{
+    @Html.HiddenFor(m => m.Id)
+    @Html.HiddenFor(m => m.CreatedBy)
+    @Html.HiddenFor(m => m.CreatedDt)
+    @Html.HiddenFor(m => m.UpdatedBy)
+    @Html.HiddenFor(m => m.UpdatedDt)
+    @Html.HiddenFor(m => m.Estatus)
+    
+    <div class="row form-group">
+        <div class="col-md-4">
+            <label>Paciente</label>
+            @Html.DropDownListFor(m => m.Paciente, (SelectList)ViewBag.ListaPacientes, "Selecciona una opcion...", new {@class="form-control"})
+        </div>
+        <div class="col-md-4">
+            <label>Fecha</label>
+            @Html.TextBoxFor(m => m.Fecha, new { @class = "form-control", type="date"})
+        </div>
+        <div class="col-md-4">
+            <label>Hora</label>
+            @Html.TextBoxFor(m => m.Hora, new { @class = "form-control", type="time"})
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-6">
+            <label>Tipo de Consulta</label>
+            @Html.DropDownListFor(m => m.TipoConsulta, ViewBag.TipoConsulta as List<SelectListItem>,"Selecciones una opcion...", new { @class = "form-control" })
+        </div>
+        <div class="col-md-6">
+            <label>Comentarios</label>
+            @Html.TextAreaFor(m => m.Comentarios, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-4">
+            <button class="btn btn-success notika-btn-success waves-effect" id="btnGuardar">Guardar</button>
+        </div>
+    </div>
+}
+
+<link href="~/Attachment/JqueeyDatatable/jquery.dataTables.min.css" rel="stylesheet" />
+<script src="~/Attachment/JqueeyDatatable/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/Consulta/Index.js"></script>

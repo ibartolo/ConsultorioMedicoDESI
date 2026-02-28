@@ -5,19 +5,39 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using MVCConsultorioMedico.DAL;
-using MVCConsultorioMedico.Models;
+using EntidadesConsultorioMedico;
+using static MVCConsultorioMedico.Helpers.FilterHerlper;
 
 namespace MVCConsultorioMedico.Controllers
 {
-    public class DatosFiscalesController : Controller
+    [Autenticated]
+    public class DatosFiscalesController : BaseController
     {
-        // GET: DatosFiscales
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(long id = 0)
         {
-            ObjDatosFiscales obj = new ObjDatosFiscales();
-            obj = await new HttpClientConnection().GetDatosFiscalesById(2);
+            ObjDatosFiscales obj = null;
 
-            return View(obj);
+            if (id != 0)
+            {
+                obj = await httpClientConnection.GetDatosFiscalesById(id);
+            }
+            else
+            {
+                obj = new ObjDatosFiscales();
+            }
+                return View(obj);
+        }
+
+        public async Task<ActionResult> SaveOrUpdateDatosFiscales(ObjDatosFiscales datos)
+        {
+            await httpClientConnection.SaveOrUpdateDatosFiscales(datos);
+            return Redirect("Index");
+        }
+
+        public async Task<string> GetAllDatosFiscales()
+        {
+            var response = await httpClientConnection.GetAllDatosFiscales();
+            return Newtonsoft.Json.JsonConvert.SerializeObject(response);
         }
     }
 }

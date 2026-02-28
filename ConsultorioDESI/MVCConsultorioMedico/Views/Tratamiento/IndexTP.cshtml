@@ -1,0 +1,63 @@
+﻿@model EntidadesConsultorioMedico.Relaciones.ObjTratamientoPaquete
+
+@{
+    ViewBag.Title = "IndexTP";
+    Layout = "~/Views/Shared/_TemplateAzul.cshtml";
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+
+<h2>IndexTP</h2>
+
+@using (Html.BeginForm("", "", FormMethod.Post, new { @class = "frmTratamientoPaquete", @name = "frmTratamientoPaquete" }))
+{
+    @Html.HiddenFor(m => m.Id)
+    @Html.HiddenFor(m => m.Estatus)
+    @Html.HiddenFor(m => m.CreatedBy)
+    @Html.HiddenFor(m => m.CreatedDt)
+    @Html.HiddenFor(m => m.UpdatedBy)
+    @Html.HiddenFor(m => m.UpdatedDt)
+
+    <div class="row form-group">
+        <div class="col-md-4">
+            <label>Paquete</label>
+            <input type="text" id="NombrePaquete" class="form-control" />
+        </div>
+        <div class="col-md-4">
+            <label>Costo</label>
+            <input type="text" id="Costo" class="form-control" />
+        </div>
+        <div class="col-md-4">
+            <label>Descripcion</label>
+            <input type="text" class="form-control" id="Descripcion" />
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-md-4">
+            <label>Tratamiento</label>
+            @Html.DropDownListFor(m => m.TratamientoId, (SelectList)ViewBag.ListaTratamientos, new { @class = "form-control" })
+        </div>
+        <div class="col-md-2">
+            <input type="button" onclick="AgregarTratamiento()" value="Agregar" />
+        </div>
+        <div class="col-md-6">
+            <table id="tblTratamientosTemp">
+            </table>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-4">
+            <button id="btnGuardar" type="button" class="btn btn-success notika-btn-success waves-effect" onclick="GuardarPaquete()">Guardar</button>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-12">
+            <table id="tblTP" class="table"></table>
+        </div>
+    </div>
+}
+
+<link href="~/Attachment/JqueeyDatatable/jquery.dataTables.min.css" rel="stylesheet" />
+<script src="~/Attachment/JqueeyDatatable/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/TratamientoPaquete/Index.js"></script>

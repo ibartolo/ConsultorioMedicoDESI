@@ -1,10 +1,9 @@
-﻿using MVCConsultorioMedico.Models;
+﻿using EntidadesConsultorioMedico;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
-using MVCConsultorioMedico.Models;
 using System.Web.Helpers;
 using Newtonsoft.Json;
 
@@ -21,6 +20,28 @@ namespace MVCConsultorioMedico.DAL
                 }));
 
             return JsonConvert.DeserializeObject<ObjEmpresa>(response);
+        }
+        public async Task<List<ObjEmpresa>> GetAllEmpresa()
+        {
+            var response = await RequestAsync($"api/Empresa/List", System.Net.Http.HttpMethod.Get, null,
+                new Func<string, string>((responseString) =>
+                {
+                    return responseString;
+                }));
+
+            return JsonConvert.DeserializeObject<List<ObjEmpresa>>(response);
+        }
+        public async Task<ObjEmpresa> SaveOrUpdateEmpresa(ObjEmpresa obj)
+        {
+            MappingColumnSecurity(obj);
+
+            var response = await RequestAsync($"api/Empresa", System.Net.Http.HttpMethod.Post, obj,
+                new Func<string, ObjEmpresa>((responseString) =>
+                {
+                    return JsonConvert.DeserializeObject<ObjEmpresa>(responseString);
+                }));
+
+            return response;
         }
     }
 }

@@ -1,0 +1,101 @@
+﻿@model EntidadesConsultorioMedico.ObjInstitucion
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_TemplateAzul.cshtml";
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+
+<h2>Instituciones</h2>
+
+@using (Html.BeginForm("SaveOrUpdateInstitucion", "Institucion", FormMethod.Post, new { @id = "frmInstitucion", @name = "frmInstitucion" }))
+{
+@Html.HiddenFor(m => m.Id)
+@Html.HiddenFor(m => m.CreatedBy)
+@Html.HiddenFor(m => m.CreatedDt)
+@Html.HiddenFor(m => m.UpdatedBy)
+@Html.HiddenFor(m => m.UpdatedDt)
+@Html.HiddenFor(m => m.Estatus)
+
+<div class="row form-group">
+    <div class="col-md-6">
+        <label>Institucion</label>
+        @Html.TextBoxFor(m => m.Nombre, new {@class="form-control"})
+    </div>
+    <div class="col-md-6">
+        <label>No. Trabajadores</label>
+        @Html.TextBoxFor(m => m.NumeroTrabajadores, new { @class = "form-control" })
+    </div>
+</div>
+
+<div class="row form-group">
+    <div class="col-md-4">
+        <label>Telefono 1</label>
+        @Html.TextBoxFor(m => m.TelefonoL1, new { @class = "form-control" })
+    </div>
+    <div class="col-md-4">
+        <label>Telefono 2</label>
+        @Html.TextBoxFor(m => m.TelefonoL2, new { @class = "form-control" })
+    </div>
+    <div class="col-md-4">
+        <label>Email</label>
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+    </div>
+</div>
+
+<div class="row form-group">
+    <div class="col-md-4">
+        <labe>Calle</labe>
+        @Html.TextBoxFor(m => m.Calle, new { @class = "form-control" })
+    </div>
+    <div class="col-md-4">
+        <label>Numero Interior</label>
+        @Html.TextBoxFor(m => m.NumeroInterior, new { @class = "form-control" })
+    </div>
+    <div class="col-md-4">
+        <label>Numero Exterior</label>
+        @Html.TextBoxFor(m => m.NumeroExterior, new { @class = "form-control" })
+    </div>
+</div>
+
+<div class="row form-group">
+    <div class="col-md-4">
+        <label>Colonia</label>
+        @Html.TextBoxFor(m => m.Colonia, new { @class = "form-control" })
+    </div>
+    <div class="col-md-4">
+        <label>Delegación</label>
+        @Html.TextBoxFor(m => m.Delegacion, new { @class = "form-control" })
+    </div>
+    <div class="col-md-4">
+        <label>Municipio</label>
+        @Html.TextBoxFor(m => m.Municipio, new { @class = "form-control" })
+    </div>
+</div>
+
+<div class="row form-group">
+    <div class="col-md-4">
+        <label>Estado</label>
+        @Html.TextBoxFor(m => m.Estado, new { @class = "form-control" })
+    </div>
+    <div class="col-md-4">
+        <label>Codigo Postal</label>
+        @Html.TextBoxFor(m => m.CodigoPostal, new { @class = "form-control" })
+    </div>
+    <div class="col-md-4">
+        <label>Pais</label>
+        @Html.TextBoxFor(m => m.Pais, new { @class = "form-control" })
+    </div>
+</div>
+
+<div class="row form-group">
+    <div class="col-md-4">
+        <button type="submit" class="btn btn-success notika-btn-success waves-effect" id="btnGuardar">Guardar</button>
+    </div>
+</div>
+}
+
+<link href="~/Attachment/JqueeyDatatable/jquery.dataTables.min.css" rel="stylesheet" />
+<script src="~/Attachment/JqueeyDatatable/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/Institucion/Index.js"></script>

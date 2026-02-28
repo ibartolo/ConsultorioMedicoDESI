@@ -1,0 +1,102 @@
+﻿<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <!-- Bootstrap 3 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- jQuery y Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Attachment/JqueeyDatatable/jquery.dataTables.min.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <div class="navbar-header">
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div class="logo">
+            <i class="fas fa-hospital"></i>
+            <span>Centro Médico</span>
+        </div>
+        <div class="header-actions">
+            <button class="notification-btn">
+                <i class="fas fa-bell"></i>
+                <span class="notification-badge">3</span>
+            </button>
+            <button class="profile-btn">
+                <i class="fas fa-user"></i>
+            </button>
+            <button class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <aside class="sidebar">
+            <nav>
+                @{
+                    var currentController = ViewContext.RouteData.Values["controller"]?.ToString() ?? "";
+                    var currentAction = ViewContext.RouteData.Values["action"]?.ToString() ?? "";
+                    Func<string, string, string> isActive = (controller, action) =>
+                        (string.Equals(controller, currentController, System.StringComparison.OrdinalIgnoreCase)
+                         && (string.IsNullOrEmpty(action) || string.Equals(action, currentAction, System.StringComparison.OrdinalIgnoreCase)))
+                         ? "active" : "";
+                    // helper overload when you only want to match by controller
+                    Func<string, string> isActiveByController = controller =>
+                        string.Equals(controller, currentController, System.StringComparison.OrdinalIgnoreCase) ? "active" : "";
+                }
+                <ul class="sidebar-menu">
+                    <li><a href="/Home/Index" class="menu-item @(isActive("Home","Index"))"><i class="fas fa-home"></i> <span class="menu-text">Inicio</span></a></li>
+                    <li><a href="/Paciente/Index" class="menu-item @(isActiveByController("Paciente"))"><i class="fas fa-user-injured"></i> <span class="menu-text">Pacientes</span></a></li>
+                    <li><a href="/Empresa/Index" class="menu-item @(isActiveByController("Empresa"))"><i class="fa-etch fa-solid fa-building"></i> <span class="menu-text">Empresas</span></a></li>
+                    <li><a href="/Tratamiento/Index" class="menu-item @(isActiveByController("Tratamiento"))"><i class="fas fa-pills"></i> <span class="menu-text">Tratamientos</span></a></li>
+                    <li><a href="/Tratamiento/IndexTP" class="menu-item @(isActive("Tratamiento","IndexTP"))"><i class="fas fa-boxes"></i> <span class="menu-text">Tratamiento Paquete</span></a></li>
+                    <li><a href="/DatosFiscales/Index" class="menu-item @(isActiveByController("DatosFiscales"))"><i class="fa-etch fa-solid fa-file"></i> <span class="menu-text">Datos Fiscales</span></a></li>
+                    <li><a href="/Usuario/Index" class="menu-item @(isActiveByController("Usuario"))"><i class="fas fa-user"></i> <span class="menu-text">Usuarios</span></a></li>
+                    <li><a href="/AltaTratamiento/Index" class="menu-item @(isActiveByController("AltaTratamiento"))"><i class="fas fa-band-aid"></i> <span class="menu-text">Alta Tratamiento</span></a></li>
+                    <li><a href="/Consulta/Index" class="menu-item @(isActiveByController("Consulta"))"><i class="fas fa-stethoscope"></i> <span class="menu-text">Consultas</span></a></li>
+                    <li><a href="/Institucion/Index" class="menu-item @(isActiveByController("Institucion"))"><i class="fa-etch fa-solid fa-clipboard"></i> <span class="menu-text">Instituciones</span></a></li>
+                    @*<li><a href="#" class="menu-item"><i class="fas fa-cog"></i> <span class="menu-text">Configuración</span></a></li>*@
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+
+
+
+            @RenderBody()
+
+
+
+
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="copyright">
+            © 2023 Centro Médico - Todos los derechos reservados
+        </div>
+        <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+
+
+
+    <script src="~/Scripts/Template/Index.js"></script>
+    <script src="~/Scripts/Comun/Comun.js"></script>
+
+</body>
+</html>

@@ -1,4 +1,5 @@
-﻿using MVCConsultorioMedico.Models;
+﻿using EntidadesConsultorioMedico;
+using MVCConsultorioMedico.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,20 +7,40 @@ using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using MVCConsultorioMedico.DAL;
-
+using static MVCConsultorioMedico.Helpers.FilterHerlper;
 namespace MVCConsultorioMedico.Controllers
 {
-    public class UsuarioController : Controller
+    [Autenticated]
+    public class UsuarioController : BaseController
     {
         // GET: Usuario
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(long id = 0)
         {
-            //especificar el metodo que voy a utilizar para obtener usuario por id
+            ObjUsuario obj = null;
 
-            ObjUsuario obj = new ObjUsuario();
-            obj = await new HttpClientConnection().GetUsuarioById(2);
+            if (id != 0)
+            {
+                obj = await httpClientConnection.GetUsuarioById(id);
+            }
+            else
+            {
+                obj = new ObjUsuario();
+            }
+
             return View(obj);
+        }
+
+        public async Task<ActionResult> SaveOrUpdateUsuario(ObjUsuario obj)
+        {
+            await httpClientConnection.SaveOrUpdateUsuario(obj);
+            return Redirect("Index");
+        }
+
+        public async Task<string> GetAllUsuario()
+        {
+            var response = await httpClientConnection.GetAllUsuario();
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(response);
         }
     }
 }

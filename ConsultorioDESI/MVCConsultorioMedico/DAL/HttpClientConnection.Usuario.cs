@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
-using MVCConsultorioMedico.Models;
+using EntidadesConsultorioMedico;
 using Newtonsoft.Json;
 
 namespace MVCConsultorioMedico.DAL
@@ -18,6 +18,26 @@ namespace MVCConsultorioMedico.DAL
                 return responseString;
             }));
             return JsonConvert.DeserializeObject<ObjUsuario>(response);
+        }
+
+        public async Task<ObjUsuario> SaveOrUpdateUsuario(ObjUsuario obj)
+        {
+            MappingColumnSecurity(obj);
+            var response = await RequestAsync($"api/Usuario", System.Net.Http.HttpMethod.Post, obj,
+                new Func<string, ObjUsuario>((responseString) => {
+                    return JsonConvert.DeserializeObject<ObjUsuario>(responseString);
+                }));
+            return response;
+        }
+
+        public async Task<List<ObjUsuario>> GetAllUsuario()
+        {
+            var response = await RequestAsync($"api/Usuario/List", System.Net.Http.HttpMethod.Get, null,
+                new Func<string, string>((responseString) =>
+                {
+                    return responseString;
+                }));
+            return JsonConvert.DeserializeObject<List<ObjUsuario>>(response);
         }
     }
 

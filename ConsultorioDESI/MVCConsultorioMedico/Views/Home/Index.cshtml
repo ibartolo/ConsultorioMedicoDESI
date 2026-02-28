@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_TemplateAzul.cshtml";
+}
+
+<section class="component-section">
+    <h2 class="section-title">Indicadores del Mes</h2>
+    <div class="dashboard-stats">
+        <div class="stat-card">
+            <div class="stat-header">
+                <h3>Pacientes Nuevos</h3>
+                <div class="stat-icon" style="background-color: rgba(79, 195, 247, 0.2); color: var(--primary);">
+                    <i class="fas fa-user-plus"></i>
+                </div>
+            </div>
+            <div class="stat-value">@ViewBag.TotalPacientes</div>
+            <div class="stat-title">Este mes</div>
+            <div class="stat-change positive">
+                <i class="fas fa-arrow-up"></i> @ViewBag.PorcentajePacientes% vs mes anterior <!--El valor no se representa-->
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-header">
+                <h3>Citas Programadas</h3>
+                <div class="stat-icon" style="background-color: rgba(76, 175, 80, 0.2); color: var(--success);">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+            </div>
+            <div class="stat-value">@ViewBag.TotalCitas</div> 
+            <div class="stat-title">Este mes</div>
+            <div class="stat-change positive">
+                <i class="fas fa-arrow-up"></i> 0% vs mes anterior <!--Ingresar el porcentaje de las citas del mes anterior-->
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-header">
+                <h3>Citas Completadas</h3>
+                <div class="stat-icon" style="background-color: rgba(3, 169, 244, 0.2); color: var(--primary-dark);">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+            </div>
+            <div class="stat-value">128</div>
+            <div class="stat-title">Este mes</div>
+            <div class="stat-change positive">
+                <i class="fas fa-arrow-up"></i> 5% vs mes anterior
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-header">
+                <h3>Ingresos</h3>
+                <div class="stat-icon" style="background-color: rgba(255, 152, 0, 0.2); color: var(--warning);">
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+            </div>
+            <div class="stat-value">$24,580</div>
+            <div class="stat-title">Este mes</div>
+            <div class="stat-change positive">
+                <i class="fas fa-arrow-up"></i> 15% vs mes anterior
+            </div>
+        </div>
+    </div>
+</section>
